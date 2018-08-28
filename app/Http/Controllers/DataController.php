@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use App\DataPro;
+use PDF;
 
 use Illuminate\Http\Request;
 
@@ -84,7 +85,9 @@ class DataController extends Controller
      */
     public function show($id)
     {
-        //
+        $item = Post::published()->findOrFail($id);
+        
+        return view('data.show',compact('item'));
     }
 
     /**
@@ -149,5 +152,34 @@ class DataController extends Controller
         $datapro = DataPro::find($id);
         $datapro->delete();
         return redirect('passports')->with('success','Information has been  deleted');
+    }
+
+    public function detailpdf($id)
+    {
+        // $data= DataPro::find($id);
+        // dd($data);
+        // $dataprovinsi = DB::table('provinsi')->get();
+
+        $data = DataPro::find($id);
+        view()->share('data',$data);
+
+        $pdf = PDF::loadView('exportpdf.detail', $data);
+
+        return $pdf->download('detailpdf.pdf');
+
+    }
+    public function allpdf()
+    {
+        // $data= DataPro::find($id);
+        // dd($data);
+        // $dataprovinsi = DB::table('provinsi')->get();
+
+        $items = DataPro::all();
+        view()->share('items',$items);
+
+        $pdf = PDF::loadView('exportpdf.all', $items);
+
+        return $pdf->download('allpdf.pdf');
+
     }
 }

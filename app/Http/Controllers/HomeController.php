@@ -42,7 +42,7 @@ class HomeController extends Controller
         ->addColumn('action', function ($datapro) {
             return 
                 \Form::open(array('method'=>'DELETE', 'route' => array('data.data.destroy',"$datapro->id"))) .
-                '<a href="'.$datapro->id.'/edit" class="btn btn-xs btn-primary"><i class="fa fa-edit"></i></a>
+                '<a href="data/'.$datapro->id.'/edit" class="btn btn-primary"><i class="fa fa-edit"></i></a>
                     | ' .
                 \Form::button('<i class="fa fa-trash"></i>', array('type' => 'submit','class'=>'btn btn-xs btn-danger')) .
                 \Form::close();

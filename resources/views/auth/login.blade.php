@@ -54,7 +54,9 @@
 
    <div class="social-login-content">
         <div class="social-button">
-            <button type="button" class="btn social facebook btn-flat btn-addon mb-3"><i class="ti-google"></i>Sign in with Google</button>
+        <form action="{{ route('redirect') }}">
+            <button type="submit" class="btn social facebook btn-flat btn-addon mb-3"><i class="ti-google"></i>Sign in with Google</button>
+            </form>
             {{-- <button type="button" class="btn social twitter btn-flat btn-addon mt-2"><i class="ti-twitter"></i>Sign in with twitter</button> --}}
         </div>
     </div>

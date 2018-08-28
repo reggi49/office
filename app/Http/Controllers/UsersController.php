@@ -59,7 +59,7 @@ class UsersController extends Controller
         $user->email=$request->get('email');
         $user->no_telp=$request->get('no_telp');
         $user->password= bcrypt($request['password']);
-        $user->foto=$gambar1;
+        $user->avatar=$gambar1;
         $user->save();
 
         //$data = $this->handleRequest($request);
@@ -118,7 +118,7 @@ class UsersController extends Controller
     public function edit($id)
     {
         $user = User::findOrFail($id);
-        return view("users.edit", compact('user'));
+        return view("users.edit", compact('user','id'));
     }
 
     /**
@@ -128,9 +128,9 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Requests\UserUpdateRequest $request, $id)
+    public function update(Requests $request, $id)
     {
-        $user = User::findOrFail($id);
+        $user = User::find($id);
         if($request->hasfile('gambar1'))
          {
             $file = $request->file('gambar1');

@@ -18,14 +18,24 @@
 $this->get('/', 'Auth\LoginController@showLoginForm')->name('login');
 $this->post('/login', 'Auth\LoginController@login');
 $this->post('/logout', 'Auth\LoginController@logout')->name('logout');
+Route::get('/redirect', 'Auth\LoginController@redirectToProvider')->name('redirect');
+Route::get('/callback', 'Auth\LoginController@handleProviderCallback');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-// Route::get('/home/data', 'HomeController@datambtech')->name('data');
+Route::get('/home/data', 'HomeController@datambtech')->name('data');
 Route::resource('/data', 'DataController',['as' => 'data']);
 Route::resource('/users', 'UsersController',['as' => 'users']);
+Route::get('/detailpdf/{id}','DataController@detailpdf');
+Route::get('/allpdf','DataController@allpdf');
 
-// Route::get('/users', 'UsersController@index')->name('users');
 
+// users route
+// Route::group(['prefix' => 'mbtech-office'], function () {
+//     Route::get('/', 'UsersController@index');
+//     Route::match(['get', 'post'], 'create', 'UsersController@create');
+//     Route::match(['get', 'put'], 'update/{id}', 'UsersController@update');
+//     Route::delete('delete/{id}', 'UsersController@delete');
+// });
 // Get Data Datatables
 Route::get('datatable/getdata', 'HomeController@getPosts')->name('datatable/getdata');

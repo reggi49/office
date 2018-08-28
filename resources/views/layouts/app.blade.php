@@ -33,7 +33,6 @@
 
     </head>
     <body class="bg-dark">
-    @include('layouts.sidebar')
 
     @yield('content')
 
@@ -72,7 +71,7 @@
         var oTable = $('.datatable').DataTable({
         processing: true,
         serverSide: true,
-        ajax: {
+        ajax: { 
             url: '{{ route('datatable/getdata') }}'
             // data: function (d) {
             //     d.status = $('select[name=status]').val();
