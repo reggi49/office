@@ -43,7 +43,7 @@
                         </div>
                         <div class="card-body">
                             <div class="pull-left">
-                            <a href="{{ route('users.users.create')}}" class="btn btn-success"><i class="fa fa-pencil"></i> Add New User</a>               
+                            <a href="{{ url('/users/create')}}" class="btn btn-success"><i class="fa fa-pencil"></i> Add New User</a>               
               </div>
                   <table class="table">
                     <thead>
@@ -62,13 +62,29 @@
                 <td>{{ $user->name }}</td>
                 <td>{{ $user->email }}</td>
                 <td>
-                <a href="{{url('users/'.$user->id.'/edit')}}" class="btn btn-xs btn-default">
+                <form id="frm_{{$user->id}}"
+                        action="{{url('users/delete/'.$user->id)}}"
+                        method="post" style="padding-bottom: 0px;margin-bottom: 0px">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <a href="javascript:if(confirm('Are you sure want to delete?')) $('#frm_{{$user->id}}').submit()"
+                                class="btn btn-danger btn-sm btn-block">Delete</a>
+                        </div>
+                        <div class="col-sm-6">
+                            <a href="{{url('users/update/'.$user->id)}}"
+                                class="btn btn-primary btn-sm btn-block">Edit</a>
+                        </div>
+                        <input type="hidden" name="_method" value="delete"/>
+                        {{csrf_field()}}
+                    </div>
+                </form>
+                {{-- <a href="{{url('users/'.$user->id.'/edit')}}" class="btn btn-xs btn-default">
                         <i class="fa fa-edit"></i>
                     </a>
                    
                         <a href="#" class="btn btn-xs btn-danger">
                             <i class="fa fa-times"></i>
-                        </a>
+                        </a> --}}
                 </td>
             </tr>
 
@@ -77,6 +93,8 @@
                       </tbody>
 
                         </table>
+                        {{ $users->links() }}
+
                         </div>
                     </div>
                 </div>

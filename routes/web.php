@@ -25,17 +25,22 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/home/data', 'HomeController@datambtech')->name('data');
 Route::resource('/data', 'DataController',['as' => 'data']);
-Route::resource('/users', 'UsersController',['as' => 'users']);
+Route::resource('/customer', 'CustomerController',['as' => 'customer']);
+Route::post('/customer/loaddaerah', 'CustomerController@loadDaerah')->name('customer.loaddaerah');
+
+// Route::resource('/users', 'UsersController',['as' => 'users']);
+Route::get('/getkota/{id}','DataController@getKota');
 Route::get('/detailpdf/{id}','DataController@detailpdf');
 Route::get('/allpdf','DataController@allpdf');
 
+Route::post('customer/sendmail', 'CustomerController@sendMail')->name('customer.sendmail');
 
 // users route
-// Route::group(['prefix' => 'mbtech-office'], function () {
-//     Route::get('/', 'UsersController@index');
-//     Route::match(['get', 'post'], 'create', 'UsersController@create');
-//     Route::match(['get', 'put'], 'update/{id}', 'UsersController@update');
-//     Route::delete('delete/{id}', 'UsersController@delete');
-// });
+Route::group(['prefix' => '/'], function () {
+    Route::get('/users', 'UsersController@index');
+    Route::match(['get', 'post'], 'users/create', 'UsersController@create');
+    Route::match(['get', 'put'], 'users/update/{id}', 'UsersController@update');
+    Route::delete('users/delete/{id}', 'UsersController@delete');
+});
 // Get Data Datatables
 Route::get('datatable/getdata', 'HomeController@getPosts')->name('datatable/getdata');

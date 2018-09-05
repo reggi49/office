@@ -52,7 +52,7 @@
                             <div class="col-12 col-md-9">
                               <select name="provinsi" id="provinsi" class="form-control" onchange="ajaxkota(this.value)">
                                 @foreach($dataprovinsi as $provinsi)
-                                    <option value="{{ $provinsi->id_prov }}">{{ $provinsi->nama }}</option>
+                                    <option value="{{ $provinsi->id_prov }},{{ $provinsi->nama }}">{{ $provinsi->nama }}</option>
                                 @endforeach
                               </select>
                             </div>
@@ -77,14 +77,18 @@
                             <div class="col col-md-3"><label for="alamat" class=" form-control-label">Alamat Toko</label></div>
                             <div class="col-12 col-md-9"><textarea name="alamat_toko" id="alamat_toko" rows="5" placeholder="Alamat toko" class="form-control"></textarea></div>
                           </div>
+                            <div class="row form-group">
+                            <div class="col col-md-3"><label for="contact" class=" form-control-label">Kontak</label></div>
+                            <div class="col-12 col-md-9"><input type="text" id="contact" name="contact" placeholder="Contact" class="form-control"></div>
+                          </div>
                           <div class="row form-group">
-                            <div class="col col-md-3"><label for="telp" class=" form-control-label">No. Telp</label></div>
+                            <div class="col col-md-3"><label for="telp" class=" form-control-label">No.Telp / No. Faxs</label></div>
                             <div class="col-12 col-md-9"><input type="text" id="telp" name="telp" placeholder="telp" class="form-control"></div>
                           </div>
-                          <div class="row form-group">
+                          {{-- <div class="row form-group">
                             <div class="col col-md-3"><label for="faxs" class=" form-control-label">No. Fax</label></div>
                             <div class="col-12 col-md-9"><input type="text" id="fax" name="fax" placeholder="Fax Number" class="form-control"></div>
-                          </div>
+                          </div> --}}
                           <div class="row form-group">
                             <div class="col col-md-3"><label for="email" class=" form-control-label">Email</label></div>
                             <div class="col-12 col-md-9"><input type="email" id="email" name="email" placeholder="Masukan Email" class="form-control"></div>
@@ -94,10 +98,6 @@
                             <div class="col-12 col-md-9"><input type="text" id="phone" name="phone" placeholder="Phone" class="form-control"></div>
                           </div>
                             <div class="row form-group">
-                            <div class="col col-md-3"><label for="contact" class=" form-control-label">Contact</label></div>
-                            <div class="col-12 col-md-9"><input type="text" id="contact" name="contact" placeholder="Contact" class="form-control"></div>
-                          </div>
-                            <div class="row form-group">
                             <div class="col col-md-3"><label for="birthday" class=" form-control-label">Tanggal Lahir</label></div>
                             <div class="col-12 col-md-9"><input type="text" name="birthday" id="datepicker" placeholder="birthday" class="date form-control""></div>
                           </div>
@@ -105,7 +105,11 @@
                             <div class="col col-md-3"><label for="alamat" class=" form-control-label">Alamat Rumah</label></div>
                             <div class="col-12 col-md-9"><textarea name="alamat_rumah" id="alamat_rumah" rows="5" placeholder="Alamat toko" class="form-control"></textarea></div>
                           </div>
-                        <div class="row form-group">
+                          <div class="row form-group">
+                            <div class="col col-md-3"><label for="keterangan" class=" form-control-label">Keterangan</label></div>
+                            <div class="col-12 col-md-9"><input type="text" id="keterangan" name="keterangan" placeholder="Keterangan" class="form-control"></div>
+                          </div>
+                          <div class="row form-group">
                             <div class="col col-md-3"><label for="contact" class=" form-control-label">Agama</label></div>
                             <div class="col-12 col-md-9"><input type="text" id="religion" name="religion" placeholder="Agama" class="form-control"></div>
                           </div>
@@ -114,21 +118,20 @@
                             <div class="col-12 col-md-9"><input type="text" id="celebration" name="celebration" placeholder="Hari Raya" class="form-control"></div>
                           </div>
                           <div class="row form-group">
-                            <div class="col col-md-3"><label for="keterangan" class=" form-control-label">Keterangan</label></div>
-                            <div class="col-12 col-md-9"><input type="text" id="keterangan" name="keterangan" placeholder="Keterangan" class="form-control"></div>
-                          </div>
-                          <div class="row form-group">
                             <div class="col col-md-3"><label class=" form-control-label">Status</label></div>
                             <div class="col col-md-9">
                               <div class="form-check-inline form-check">
                                 <label for="status" class="form-check-label ">
-                                  <input type="radio" id="status" name="status" value="option1" class="form-check-input">One
+                                  <input type="radio" id="status" name="status" value="X" class="form-check-input">X
                                 </label>
                                 <label for="status" class="form-check-label ">
-                                  <input type="radio" id="istatus" name="status" value="option2" class="form-check-input">Two
+                                  <input type="radio" id="istatus" name="status" value="Y" class="form-check-input">Y
                                 </label>
                                 <label for="inline-radio3" class="form-check-label ">
-                                  <input type="radio" id="status" name="status" value="option3" class="form-check-input">Three
+                                  <input type="radio" id="status" name="status" value="Z" class="form-check-input">Z
+                                </label>
+                                <label for="inline-radio3" class="form-check-label ">
+                                  <input type="radio" id="status" name="status" value="N" class="form-check-input">N
                                 </label>
                               </div>
                             </div>
@@ -167,7 +170,7 @@
    <script>
        var ajaxku=buatajax();
 function ajaxkota(id){
-  var url="http://phpindonesia.id1945.com/daerah/select_daerah.php?prop="+id+"&sid="+Math.random();
+  var url="http://localhost:8000/getkota/"+id;
   ajaxku.onreadystatechange=stateChanged;
   ajaxku.open("GET",url,true);
   ajaxku.send(null);

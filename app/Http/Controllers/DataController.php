@@ -9,6 +9,10 @@ use Illuminate\Http\Request;
 
 class DataController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -49,14 +53,14 @@ class DataController extends Controller
          }
         $datapro= new \App\DataPro;
         $datapro->region=$request->get('region');
-        $datapro->provinsi=$request->get('provinsi');
+        $datapro->provinsi=substr($request->get('provinsi'),3);
         $datapro->kota=$request->get('kota');
         $datapro->kecamatan=$request->get('klasifikasi');
         $datapro->toko=$request->get('toko');
         $datapro->alamat=$request->get('alamat_toko');
         $datapro->alamat_2=$request->get('alamat_toko');
         $datapro->phone=$request->get('telp');
-        $datapro->faxs=$request->get('fax');
+        $datapro->faxs=$request->get('telp');
         $datapro->email=$request->get('email');
         $datapro->hp=$request->get('phone');
         $datapro->contact=$request->get('contact');
@@ -64,17 +68,23 @@ class DataController extends Controller
         $datapro->b_day = date_format($date,"Y-m-d");
         // $datapro->b_day = strtotime($format);
         $datapro->alamat_rumah=$request->get('alamat_rumah');
-        $datapro->id=1;
+        // $datapro->id=1;
         $datapro->religion=$request->get('religion');
         $datapro->celebration=$request->get('celebration');
         $datapro->keterangan=$request->get('keterangan');
         $datapro->status=$request->get('status');
         // $datapro->deleted_at='2018-00-00';
-        $datapro->gambar=$gambar1;
+        if($request->hasfile('gambar1')){
+            $datapro->gambar=$gambar1;
+            $user->save();
+        }else{
+            $datapro->gambar = false;
+            $user->save();
+        }
         // dd($datapro);
-        $datapro->save();
+        // $datapro->save();
         
-        return redirect('index')->with('success', 'Information has been added');
+        return redirect('data')->with('success', 'Information has been added');
     }
     
     /**
@@ -112,17 +122,16 @@ class DataController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $passport= DataPro::find($id);
-        $datapro= new \App\DataPro;
+        $datapro= DataPro::find($id);
         $datapro->region=$request->get('region');
-        $datapro->provinsi=$request->get('provinsi');
+        $datapro->provinsi=substr($request->get('provinsi'),3);
         $datapro->kota=$request->get('kota');
         $datapro->kecamatan=$request->get('klasifikasi');
         $datapro->toko=$request->get('toko');
         $datapro->alamat=$request->get('alamat_toko');
         $datapro->alamat_2=$request->get('alamat_toko');
         $datapro->phone=$request->get('telp');
-        $datapro->faxs=$request->get('fax');
+        $datapro->faxs=$request->get('telp');
         $datapro->email=$request->get('email');
         $datapro->hp=$request->get('phone');
         $datapro->contact=$request->get('contact');
@@ -130,14 +139,18 @@ class DataController extends Controller
         $datapro->b_day = date_format($date,"Y-m-d");
         // $datapro->b_day = strtotime($format);
         $datapro->alamat_rumah=$request->get('alamat_rumah');
-        $datapro->id=1;
         $datapro->religion=$request->get('religion');
         $datapro->celebration=$request->get('celebration');
         $datapro->keterangan=$request->get('keterangan');
         $datapro->status=$request->get('status');
         // $datapro->deleted_at='2018-00-00';
-        $datapro->gambar=$gambar1;
-        $datapro->save();
+        if($request->hasfile('gambar1')){
+            $datapro->gambar=$gambar1;
+            $datapro->save();
+        }else{
+            $datapro->gambar = false;
+            $datapro->save();
+        }
         return redirect('data')->with('success', 'Information has been updated');
     }
 
@@ -151,7 +164,18 @@ class DataController extends Controller
     {
         $datapro = DataPro::find($id);
         $datapro->delete();
-        return redirect('passports')->with('success','Information has been  deleted');
+        return redirect('data')->with('success','Information has been  deleted');
+    }
+
+    public function getKota($id) 
+    {
+        $idkota = substr($id,0,2);
+        $datakotas = DB::table('kabupaten')->where('id_prov', $idkota)->orderBy('nama', 'asc')->get();
+        echo "<option value=''>Pilih Kota/Kab</option>";
+        foreach ($datakotas as $datakota) {
+            echo "<option value='{$datakota->nama}'>{$datakota->nama}</option>";
+        };
+        return;
     }
 
     public function detailpdf($id)

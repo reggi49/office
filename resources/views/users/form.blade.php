@@ -40,36 +40,36 @@
                         <strong>User</strong> Form
                       </div>
                       <div class="card-body card-block">
-                            <h1>{{isset($image)?'Edit':'New'}} User</h1>
+                            <h1>{{isset($users)?'Edit':'New'}} User</h1>
                             <hr/>
-                            @if(isset($image))
-                                {!! Form::model($image,['method'=>'put','files'=>true]) !!}
+                            @if(isset($users))
+                                {!! Form::model($users,['method'=>'put','files'=>true]) !!}
                             @else
                                 {!! Form::open(['files'=>true]) !!}
                             @endif                           
                           <div class="row form-group">
-                            {!! Form::label("Username","Username",["class"=>"col-form-label col-md-3 col-lg-2"]) !!}
+                            {!! Form::label("name","Nama",["class"=>"col-form-label col-md-3 col-lg-2"]) !!}
+                            <div class="col-md-9">
+                                {!! Form::text("name",null,["class"=>"form-control".($errors->has('name')?" is-invalid":""),"autofocus",'placeholder'=>'Nama']) !!}
+                                {!! $errors->first('name','<span class="invalid-feedback">:message</span>') !!}
+                            </div>
+                        </div>
+                          <div class="row form-group">
+                            {!! Form::label("username","Username",["class"=>"col-form-label col-md-3 col-lg-2"]) !!}
                             <div class="col-md-9">
                                 {!! Form::text("username",null,["class"=>"form-control".($errors->has('username')?" is-invalid":""),"autofocus",'placeholder'=>'Username']) !!}
                                 {!! $errors->first('username','<span class="invalid-feedback">:message</span>') !!}
                             </div>
                         </div>
                           <div class="row form-group">
-                            {!! Form::label("Username","Username",["class"=>"col-form-label col-md-3 col-lg-2"]) !!}
-                            <div class="col-md-9">
-                                {!! Form::text("username",null,["class"=>"form-control".($errors->has('username')?" is-invalid":""),"autofocus",'placeholder'=>'Username']) !!}
-                                {!! $errors->first('username','<span class="invalid-feedback">:message</span>') !!}
-                            </div>
-                        </div>
-                          <div class="row form-group">
-                            {!! Form::label("Email","Email",["class"=>"col-form-label col-md-3 col-lg-2"]) !!}
+                            {!! Form::label("email","Email",["class"=>"col-form-label col-md-3 col-lg-2"]) !!}
                             <div class="col-md-9">
                                 {!! Form::text("email",null,["class"=>"form-control".($errors->has('email')?" is-invalid":""),"autofocus",'placeholder'=>'Email']) !!}
                                 {!! $errors->first('email','<span class="invalid-feedback">:message</span>') !!}
                             </div>
                         </div>
                           <div class="row form-group">
-                            {!! Form::label("No Telp","No Telp",["class"=>"col-form-label col-md-3 col-lg-2"]) !!}
+                            {!! Form::label("no_telp","No Telp",["class"=>"col-form-label col-md-3 col-lg-2"]) !!}
                             <div class="col-md-9">
                                 {!! Form::text("no_telp",null,["class"=>"form-control".($errors->has('no_telp')?" is-invalid":""),"autofocus",'placeholder'=>'No Telp']) !!}
                                 {!! $errors->first('no_telp','<span class="invalid-feedback">:message</span>') !!}
@@ -78,7 +78,7 @@
                           <div class="row form-group">
                             {!! Form::label("password","Password",["class"=>"col-form-label col-md-3 col-lg-2"]) !!}
                             <div class="col-md-9">
-                                {!! Form::text("password",null,["class"=>"form-control".($errors->has('password')?" is-invalid":""),"autofocus",'placeholder'=>'Password']) !!}
+                                {!! Form::password('password', ['class' => 'form-control']) !!}
                                 {!! $errors->first('password','<span class="invalid-feedback">:message</span>') !!}
                             </div>
                             </div>
@@ -86,7 +86,7 @@
                             {!! Form::label("image","Image",["class"=>"col-form-label col-md-3"]) !!}
                             <div class="col-md-5">
                                 <img id="preview"
-                                    src="{{asset((isset($image) && $image->image!='')?'uploads/'.$image->image:'images/noimage.jpg')}}"
+                                    src="{{asset((isset($users) && $users->avatar!='')?''.$users->avatar:'images/noimage.jpg')}}"
                                     height="200px" width="200px"/>
                                 {!! Form::file("image",["class"=>"form-control","style"=>"display:none"]) !!}
                                 <br/>
@@ -95,12 +95,21 @@
                                 <input type="hidden" style="display: none" value="0" name="remove" id="remove">
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-primary btn-sm">
+                         <div class="form-group row">
+                            <div class="col-md-3 col-lg-2"></div>
+                            <div class="col-md-4">
+                                <a href="{{url('/users')}}" class="btn btn-danger">
+                                    Back</a>
+                                {!! Form::button("Save",["type" => "submit","class"=>"btn
+                                btn-primary"])!!}
+                            </div>
+                        </div>
+                        {{-- <button type="submit" class="btn btn-primary btn-sm">
                           <i class="fa fa-dot-circle-o"></i> Submit
                         </button>
                         <button type="reset" class="btn btn-danger btn-sm">
                           <i class="fa fa-ban"></i> Reset
-                        </button>
+                        </button> --}}
                         {!! Form::close() !!}
                       </div>
                       
@@ -118,6 +127,10 @@
     </div><!-- /#right-panel -->
 
     <!-- Right Panel -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
     <script>
         function changeProfile() {
             $('#image').click();

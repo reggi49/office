@@ -53,7 +53,12 @@
                             <div class="col-12 col-md-9">
                               <select name="provinsi" id="provinsi" class="form-control" onchange="ajaxkota(this.value)">
                                 @foreach($dataprovinsi as $provinsi)
-                                    <option value="{{ $provinsi->id_prov }}">{{ $provinsi->id_prov }}</option>
+                                    <option value="{{ $provinsi->id_prov }},{{ $provinsi->nama }}"
+                                      @if (strtolower($provinsi->nama) === strtolower($datapro->provinsi))
+                                          selected
+                                      @endif
+                                      >
+                                      {{ $provinsi->nama }}</option>
                                 @endforeach
                               </select>
                             </div>
@@ -62,7 +67,7 @@
                             <div class="col col-md-3"><label for="kota" class=" form-control-label">Kota</label></div>
                             <div class="col-12 col-md-9" id="kab_box">
                               <select name="kota" id="kota" class="form-control">
-                                
+                                  <option value="{{ $datapro->kota }}">{{ $datapro->kota }}</option>
                               </select>
                             </div>
                           </div>
@@ -78,14 +83,18 @@
                             <div class="col col-md-3"><label for="alamat" class=" form-control-label">Alamat Toko</label></div>
                             <div class="col-12 col-md-9"><textarea name="alamat_toko" id="alamat_toko" rows="5" placeholder="Alamat toko" class="form-control">{{$datapro->alamat}}</textarea></div>
                           </div>
+                            <div class="row form-group">
+                            <div class="col col-md-3"><label for="contact" class=" form-control-label">Contact</label></div>
+                            <div class="col-12 col-md-9"><input type="text" id="contact" name="contact" placeholder="Contact" value="{{$datapro->contact}}" class="form-control"></div>
+                          </div>
                           <div class="row form-group">
-                            <div class="col col-md-3"><label for="telp" class=" form-control-label">No. Telp</label></div>
+                            <div class="col col-md-3"><label for="telp" class=" form-control-label">No. Telp / No. Faxs</label></div>
                             <div class="col-12 col-md-9"><input type="text" id="telp" name="telp" placeholder="telp" value="{{$datapro->phone}}" class="form-control"></div>
                           </div>
-                          <div class="row form-group">
+                          {{-- <div class="row form-group">
                             <div class="col col-md-3"><label for="faxs" class=" form-control-label">No. Fax</label></div>
                             <div class="col-12 col-md-9"><input type="text" id="fax" name="fax" placeholder="Fax Number" value="{{$datapro->faxs}}" class="form-control"></div>
-                          </div>
+                          </div> --}}
                           <div class="row form-group">
                             <div class="col col-md-3"><label for="email" class=" form-control-label">Email</label></div>
                             <div class="col-12 col-md-9"><input type="email" id="email" name="email" placeholder="Masukan Email" value="{{$datapro->email}}" class="form-control"></div>
@@ -95,16 +104,16 @@
                             <div class="col-12 col-md-9"><input type="text" id="phone" name="phone" placeholder="Phone" value="{{$datapro->hp}}" class="form-control"></div>
                           </div>
                             <div class="row form-group">
-                            <div class="col col-md-3"><label for="contact" class=" form-control-label">Contact</label></div>
-                            <div class="col-12 col-md-9"><input type="text" id="contact" name="contact" placeholder="Contact" value="{{$datapro->contact}}" class="form-control"></div>
-                          </div>
-                            <div class="row form-group">
                             <div class="col col-md-3"><label for="birthday" class=" form-control-label">Tanggal Lahir</label></div>
                             <div class="col-12 col-md-9"><input type="text" name="birthday" id="datepicker" placeholder="birthday" value="{{$datapro->b_day}}" class="date form-control""></div>
                           </div>
                           <div class="row form-group">
-                            <div class="col col-md-3"><label for="alamat" class=" form-control-label">Alamat Rumah</label></div>
-                            <div class="col-12 col-md-9"><textarea name="alamat_rumah" id="alamat_rumah" rows="5" placeholder="Alamat toko" value="{{$datapro->alamat_rumah}}" class="form-control"></textarea></div>
+                            <div class="col col-md-3"><label for="alamat_rumah" class=" form-control-label">Alamat Rumah</label></div>
+                            <div class="col-12 col-md-9"><textarea name="alamat_rumah" id="alamat_rumah" rows="5" placeholder="Alamat Rumah" class="form-control">{{$datapro->alamat_rumah}}</textarea></div>
+                          </div>
+                          <div class="row form-group">
+                            <div class="col col-md-3"><label for="keterangan" class=" form-control-label">Keterangan</label></div>
+                            <div class="col-12 col-md-9"><input type="text" id="keterangan" name="keterangan" placeholder="Keterangan"  value="{{$datapro->keterangan}}" class="form-control"></div>
                           </div>
                         <div class="row form-group">
                             <div class="col col-md-3"><label for="contact" class=" form-control-label">Agama</label></div>
@@ -115,21 +124,20 @@
                             <div class="col-12 col-md-9"><input type="text" id="celebration" name="celebration" placeholder="Hari Raya" value="{{$datapro->celebration}}" class="form-control"></div>
                           </div>
                           <div class="row form-group">
-                            <div class="col col-md-3"><label for="keterangan" class=" form-control-label">Keterangan</label></div>
-                            <div class="col-12 col-md-9"><input type="text" id="keterangan" name="keterangan" placeholder="Keterangan"  value="{{$datapro->keterangan}}" class="form-control"></div>
-                          </div>
-                          <div class="row form-group">
                             <div class="col col-md-3"><label class=" form-control-label">Status</label></div>
                             <div class="col col-md-9">
                               <div class="form-check-inline form-check">
                                 <label for="status" class="form-check-label ">
-                                  <input type="radio" id="status" name="status" value="option1" class="form-check-input">One
+                                <input type="radio" id="status" name="status" value="X"  class="form-check-input" @if($datapro->status === 'X')checked @endif>X
                                 </label>
                                 <label for="status" class="form-check-label ">
-                                  <input type="radio" id="istatus" name="status" value="option2" class="form-check-input">Two
+                                  <input type="radio" id="istatus" name="status" value="Y" class="form-check-input" @if($datapro->status === 'Y')checked @endif>Y
                                 </label>
                                 <label for="inline-radio3" class="form-check-label ">
-                                  <input type="radio" id="status" name="status" value="option3" class="form-check-input">Three
+                                  <input type="radio" id="status" name="status" value="Z" class="form-check-input" @if($datapro->status === 'Z')checked @endif>Z
+                                </label>
+                                <label for="inline-radio3" class="form-check-label ">
+                                  <input type="radio" id="status" name="status" value="N" class="form-check-input" @if($datapro->status === 'N')checked @endif>N
                                 </label>
                               </div>
                             </div>
@@ -169,7 +177,7 @@
    <script>
        var ajaxku=buatajax();
 function ajaxkota(id){
-  var url="http://phpindonesia.id1945.com/daerah/select_daerah.php?prop="+id+"&sid="+Math.random();
+  var url="http://localhost:8000/getkota/"+id;
   ajaxku.onreadystatechange=stateChanged;
   ajaxku.open("GET",url,true);
   ajaxku.send(null);

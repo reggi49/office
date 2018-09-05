@@ -7,11 +7,16 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Requests;
 // use App\Http\Controllers\Controller;
 use App\User;
+use Illuminate\Support\Facades\File;
 // use Intervention\Image\Facades\Image;
 // use Illuminate\Support\Arr;
 
 class UsersController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -31,10 +36,36 @@ class UsersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        $user = new User();
-        return view("users.create", compact('user'));
+        if ($request->isMethod('get'))
+            return view('users.form');
+        else {
+            $rules = [
+                'name' => 'required',
+                'username' => 'required',
+                'email' => 'required',
+                'no_telp' => 'required',
+                'password' => 'required',
+            ];
+            $this->validate($request, $rules);
+            $user = new User();
+            if ($request->hasFile('image')) {
+                $dir = 'images/';
+                $extension = strtolower($request->file('image')->getClientOriginalExtension()); // get image extension
+                $fileName = str_random() . '.' . $extension; // rename image
+                $request->file('image')->move($dir, $fileName);
+                $user->avatar = url('images/').'/'.$fileName;
+            }
+            $user->name = $request->name;
+            $user->username = $request->username;
+            $user->email = $request->email;
+            $user->no_telp = $request->no_telp;
+            $user->password = bcrypt($request['password']);
+            // dd($user);
+            $user->save();
+            return redirect('/users');
+        }
     }
 
     /**
@@ -128,48 +159,60 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Requests $request, $id)
+    public function update(Request $request, $id)
     {
-        $user = User::find($id);
-        if($request->hasfile('gambar1'))
-         {
-            $file = $request->file('gambar1');
-            $gambar1=time().$file->getClientOriginalName();
-            $file->move(public_path().'/images/', $gambar1);
-         }
-        $user = new User;
-        $user->name=$request->get('nama');
-        $user->username=$request->get('username');
-        $user->email=$request->get('email');
-        $user->no_telp=$request->get('no_telp');
-        $user->password= bcrypt($request['password']);
-        $user->foto=$gambar1;
-        $user->save();
-
-
-        //$data = $this->handleRequest($request);
-        
-        // $newPassword = $data['password'];
-        // if(empty($newPassword)){
-        //     //$data['password'] = bcrypt($data['password']);
-        //     $user->update(array_except($data, ['password']));
-        // }else{
-        //     $data['password'] = bcrypt($data['password']);
-        //     $user->update($data);
-        // }
-
-        // $user->detachRoles();
-        // $user->attachRole($request->role);
-        
-        return redirect("/backend/users")->with("message", "User was updated successfuly!");
+        if ($request->isMethod('get'))
+            return view('users.form', ['users' => User::find($id)]);
+        else {
+            $rules = [
+                'name' => 'required',
+                'username' => 'required',
+                'email' => 'required',
+                'no_telp' => 'required',
+            ];
+            $this->validate($request, $rules);
+            $user = User::find($id);
+            if ($request->hasFile('image')) {
+                $dir = 'images/';
+                if ($image->image != '' && File::exists($dir . $image->image))
+                    File::delete($dir . $image->image);
+                $extension = strtolower($request->file('image')->getClientOriginalExtension());
+                $fileName = str_random() . '.' . $extension;
+                $request->file('image')->move($dir, $fileName);
+                $user->avatar = url('images/').'/'.$fileName;
+            } elseif ($request->remove == 1 && File::exists('images/' . $user->avatar)) {
+                File::delete('images/' . $user->post_image);
+                $user->avatar = null;
+            }
+            $user->name = $request->name;
+            $user->username = $request->username;
+            $user->email = $request->email;
+            $user->no_telp = $request->no_telp;
+            //$user->password = bcrypt($request['password']);            
+            
+            if(empty($request->password)){
+                $request->password = false;
+                $user->save();
+            }else{
+                $user->password= bcrypt($request['password']);
+                $user->save();
+            }
+            return redirect('/users');
+        }
     }
 
-    /**
+    /**$2y$10$gYU4fQCal87Azh2/KRVtOuBJKzcrH7/7M2swXhKlSF7w.y7dyhTDi
      * Remove the specified resource from storage.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    public function delete($id)
+    {
+        User::destroy($id);
+        return redirect('/users');
+    }
+
     public function destroy(Requests\UserDestroyRequest $request, $id)
     {
         $user = User::findOrFail($id);
