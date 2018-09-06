@@ -1,5 +1,8 @@
 @extends('layouts.app')
 @include('layouts.sidebar')  
+
+@section('title', 'MyBlog | Users')
+
 @section('content')
    
 <div id="right-panel" class="right-panel">
@@ -27,12 +30,20 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>       
 
         <div class="content mt-3">
             <div class="animated fadeIn">
                 <div class="col-md-12">
-                        
+                        @if(Session::has('message'))
+                        <div class="alert  alert-success alert-dismissible fade show" role="alert">
+                            <span class="badge badge-pill badge-success">Info</span>{{ Session::get('message') }}</p>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        </div>
+                        </div>
+                        @endif
                         <div class="card-body">
                             <div class="col-md-12">
                     <div class="card">
@@ -140,36 +151,5 @@
 
     </div><!-- /#right-panel -->
 
-    <!-- Right Panel -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
-
-    <script>
-        function changeProfile() {
-            $('#image').click();
-        }
-        $('#image').change(function () {
-            var imgPath = $(this)[0].value;
-            var ext = imgPath.substring(imgPath.lastIndexOf('.') + 1).toLowerCase();
-            if (ext == "gif" || ext == "png" || ext == "jpg" || ext == "jpeg")
-                readURL(this);
-            else
-                alert("Please select image file (jpg, jpeg, png).")
-        });
-        function readURL(input) {
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
-                reader.readAsDataURL(input.files[0]);
-                reader.onload = function (e) {
-                    $('#preview').attr('src', e.target.result);
-                    $('#remove').val(0);
-                }
-            }
-        }
-        function removeImage() {
-            $('#preview').attr('src', '{{url('images/noimage.jpg')}}');
-            $('#remove').val(1);
-        }
-    </script>
+    <!-- Right Panel -->   
 @endsection

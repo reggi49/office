@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\File;
 // use Intervention\Image\Facades\Image;
 // use Illuminate\Support\Arr;
 
+use Illuminate\Support\Facades\Session;
+
 class UsersController extends Controller
 {
     public function __construct()
@@ -206,7 +208,10 @@ class UsersController extends Controller
                 $user->password= bcrypt($request['password']);
                 $user->save();
             }
-            return redirect('/users');
+
+            return redirect($request->url())->with('message', "Data user berhasil diperbaharui");
+
+            //return redirect('/users');
         }
     }
 

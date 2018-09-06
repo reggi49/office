@@ -39,7 +39,7 @@
 
     <script src="{{ asset('js/jquery.min.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
-      
+    
     <script src="{{ asset('js/plugins.js') }}"></script>
     <script src="{{ asset('js/main.js') }}"></script>
 
@@ -57,6 +57,34 @@
             autoclose: true,   
             format: 'dd-mm-yyyy'  
          });  
+    </script>
+{{-- Image function --}}
+ <script>
+        function changeProfile() {
+            $('#image').click();
+        }
+        $('#image').change(function () {
+            var imgPath = $(this)[0].value;
+            var ext = imgPath.substring(imgPath.lastIndexOf('.') + 1).toLowerCase();
+            if (ext == "gif" || ext == "png" || ext == "jpg" || ext == "jpeg")
+                readURL(this);
+            else
+                alert("Please select image file (jpg, jpeg, png).")
+        });
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.readAsDataURL(input.files[0]);
+                reader.onload = function (e) {
+                    $('#preview').attr('src', e.target.result);
+                    $('#remove').val(0);
+                }
+            }
+        }
+        function removeImage() {
+            $('#preview').attr('src', '{{url('images/noimage.jpg')}}');
+            $('#remove').val(1);
+        }
     </script>
 
    {{-- <script src="{{ asset('js/lib/chart-js/Chart.bundle.js') }}"></script> --}}
