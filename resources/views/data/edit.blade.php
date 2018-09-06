@@ -146,11 +146,11 @@
                             <div class="col col-md-3"><label for="file-input" class=" form-control-label">Gambar 1</label></div>
                             <div class="col-12 col-md-9"><input type="file" id="gambar1" name="gambar1" class="form-control-file"></div>
                           </div>
-                           <div class="row form-group">
+                           {{-- <div class="row form-group">
                             <div class="col col-md-3"><label for="file-input" class=" form-control-label">Gambar 2</label></div>
                             <div class="col-12 col-md-9"><input type="file" id="file-input" name="file-input" class="form-control-file"></div>
-                          </div>
-                        <button type="submit" class="btn btn-primary btn-sm">
+                          </div> --}}
+                        <button type="submit" class="btn btn-primary btn-sm" @if(Auth::user()->level == 3) disable @endif>
                           <i class="fa fa-dot-circle-o"></i> Submit
                         </button>
                         <a href="{{ url('detailpdf/'.$datapro->id)}}" class="button btn btn-success btn-sm">Print</a>

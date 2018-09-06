@@ -76,10 +76,10 @@ class DataController extends Controller
         // $datapro->deleted_at='2018-00-00';
         if($request->hasfile('gambar1')){
             $datapro->gambar=$gambar1;
-            $user->save();
+            $datapro->save();
         }else{
             $datapro->gambar = false;
-            $user->save();
+            $datapro->save();
         }
         // dd($datapro);
         // $datapro->save();

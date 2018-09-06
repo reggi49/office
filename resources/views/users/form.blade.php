@@ -89,8 +89,9 @@
                         <div class="row form-group" @if(Auth::user()->level != 1) style="display: none" @endif>
                             {!! Form::label("level","Level User",["class"=>"col-form-label col-md-3 col-lg-2"]) !!}
                             <div class="col-12 col-md-9">
-                            {!! Form::radio('level', '2', true)!!} Pengguna
-                            {!! Form::radio('level', '1')!!} Admin
+                            {!! Form::radio('level', '3', true)!!} Pengguna
+                            {!! Form::radio('level', '2')!!} Admin
+                            {!! Form::radio('level', '1')!!} Super Admin
                             </div>
                         </div>
                         <div class="row form-group" @if(Auth::user()->level != 1) style="display: none" @endif>
@@ -123,8 +124,8 @@
                          <div class="form-group row">
                             <div class="col-md-3 col-lg-2"></div>
                             <div class="col-md-4">
-                                <a href="{{url('/users')}}" class="btn btn-danger">
-                                    Back</a>
+                                @if(Auth::user()->level === 1)<a href="{{url('/users')}}" class="btn btn-danger">
+                                    Back</a> @endif
                                 {!! Form::button("Save",["type" => "submit","class"=>"btn
                                 btn-primary"])!!}
                             </div>

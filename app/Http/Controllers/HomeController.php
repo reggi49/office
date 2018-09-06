@@ -37,25 +37,41 @@ class HomeController extends Controller
 
     public function getPosts(Request $request)
     {
-        $datapro = DataPro::select(['id', 'region', 'provinsi', 'kota', 'kecamatan', 'status', 'toko', 'alamat', 'phone']);
-        return \DataTables::of($datapro)
-        ->addColumn('action', function ($datapro) {
-            return 
-                \Form::open(array('method'=>'DELETE', 'route' => array('data.data.destroy',"$datapro->id"))) .
-                '<a href="data/'.$datapro->id.'/edit" class="btn btn-primary"><i class="fa fa-edit"></i></a>
-                    | ' .
-                \Form::button('<i class="fa fa-trash"></i>', array('type' => 'submit','class'=>'btn btn-xs btn-danger')) .
-                \Form::close();
-        })
-        // ->editColumn('created_at', function ($datapro) {
-        //     return $datapro->created_at->format('Y/m/d');
-        // })
-        // ->addColumn('status', function ($datapro) {
-        //     return 'published';
-        // })
-        // ->editColumn('id', 'ID: {{$id}}')
-        // ->removeColumn('password')
-        ->make(true);
+        $iduser = $request->user()->level;
+        if($iduser == 1){
+            $datapro = DataPro::select(['id', 'region', 'provinsi', 'kota', 'kecamatan', 'status', 'toko', 'alamat', 'phone']);
+            return \DataTables::of($datapro)
+            ->addColumn('action', function ($datapro) {
+                    return 
+                        \Form::open(array('method'=>'DELETE', 'route' => array('data.data.destroy',"$datapro->id"),'onsubmit' => 'return ConfirmDelete()')) .
+                        '<a href="detailpdf/'.$datapro->id.'" class=""><i class="fa fa-print"></i></a> | ' .
+                        '<a href="data/'.$datapro->id.'/edit" class=""><i class="fa fa-edit"></i></a> | ' .
+                        \Form::button('<i class="fa fa-trash-o"></i>', array('type' => 'submit','class'=>'')) .
+                        \Form::close();
+            })
+            ->make(true);
+        }else if ($iduser == 2){
+            $datapro = DataPro::select(['id', 'region', 'provinsi', 'kota', 'kecamatan', 'status', 'toko', 'alamat', 'phone']);
+            return \DataTables::of($datapro)
+            ->addColumn('action', function ($datapro) {
+                return 
+                    \Form::open(array('method'=>'DELETE', 'route' => array('data.data.destroy',"$datapro->id"),'onsubmit' => 'return ConfirmDelete()')) .
+                    '<a href="detailpdf/'.$datapro->id.'" class=""><i class="fa fa-print"></i></a> | ' .
+                    '<a href="data/'.$datapro->id.'/edit" class=""><i class="fa fa-edit"></i></a>' .
+                    \Form::close();
+                    })
+            ->make(true);
+        }else{
+            $datapro = DataPro::select(['id', 'region', 'provinsi', 'kota', 'kecamatan', 'status', 'toko', 'alamat', 'phone']);
+            return \DataTables::of($datapro)
+            ->addColumn('action', function ($datapro) {
+                 return 
+                    \Form::open(array('method'=>'DELETE', 'route' => array('data.data.destroy',"$datapro->id"),'onsubmit' => 'return ConfirmDelete()')) .
+                    '<a href="detailpdf/'.$datapro->id.'" class=""><i class="fa fa-print"></i></a>' .
+                    \Form::close();
+                    })
+            ->make(true);
+        }
     }
     //$posts = Post::with('author','category')
 }

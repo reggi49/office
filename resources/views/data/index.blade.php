@@ -40,7 +40,7 @@
                         
                         <div class="card-body">
                             <div class="pull-left">
-                <a href="{{ url ('/data/create') }}" class="btn btn-success"><i class="fa fa-pencil"></i> Add New Post</a>               
+                <a href="{{ url ('/data/create') }}" class="btn btn-success" @if(Auth::user()->level != 1) style="display: none" @endif><i class="fa fa-pencil"></i> Add New Post</a>               
               </div>
                   <table id="bootstrap-data-table" class="table table-bordered table-striped  datatable">
                     <thead>

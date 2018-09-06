@@ -123,6 +123,19 @@
         oTable.draw();
         e.preventDefault();
     });
+    
+</script>
+<script>
+
+  function ConfirmDelete()
+  {
+  var x = confirm("Kamu Yakin ingin menghapusnya?");
+  if (x)
+    return true;
+  else
+    return false;
+  }
+
 </script>
 </body>
 </html>
