@@ -149,7 +149,6 @@ return [
         
         Yajra\DataTables\DataTablesServiceProvider::class,
         Laravel\Socialite\SocialiteServiceProvider::class,
-        Barryvdh\DomPDF\ServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
 
         /*
@@ -216,7 +215,6 @@ return [
         
         'DataTables' => Yajra\DataTables\Facades\DataTables::class,
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
-        'PDF' => Barryvdh\DomPDF\Facade::class,
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class, 
     ],

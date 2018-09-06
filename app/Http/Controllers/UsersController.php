@@ -43,10 +43,11 @@ class UsersController extends Controller
         else {
             $rules = [
                 'name' => 'required',
-                'username' => 'required',
                 'email' => 'required',
                 'no_telp' => 'required',
                 'password' => 'required',
+                'level' => 'required',
+                'status' => 'required',
             ];
             $this->validate($request, $rules);
             $user = new User();
@@ -58,9 +59,13 @@ class UsersController extends Controller
                 $user->avatar = url('images/').'/'.$fileName;
             }
             $user->name = $request->name;
-            $user->username = $request->username;
+            $user->level = $request->level;
+            $user->status = $request->status;
+            $user->username = $request->name;
             $user->email = $request->email;
             $user->no_telp = $request->no_telp;
+            $user->level = $request->level;
+            $user->status = $request->status;
             $user->password = bcrypt($request['password']);
             // dd($user);
             $user->save();
@@ -166,15 +171,16 @@ class UsersController extends Controller
         else {
             $rules = [
                 'name' => 'required',
-                'username' => 'required',
                 'email' => 'required',
                 'no_telp' => 'required',
+                'level' => 'required',
+                'status' => 'required',
             ];
             $this->validate($request, $rules);
             $user = User::find($id);
             if ($request->hasFile('image')) {
                 $dir = 'images/';
-                if ($image->image != '' && File::exists($dir . $image->image))
+                if ($user->image != '' && File::exists($dir . $user->image))
                     File::delete($dir . $image->image);
                 $extension = strtolower($request->file('image')->getClientOriginalExtension());
                 $fileName = str_random() . '.' . $extension;
@@ -188,6 +194,9 @@ class UsersController extends Controller
             $user->username = $request->username;
             $user->email = $request->email;
             $user->no_telp = $request->no_telp;
+            $user->level = $request->level;
+            $user->status = $request->status;
+            // dd($user);
             //$user->password = bcrypt($request['password']);            
             
             if(empty($request->password)){

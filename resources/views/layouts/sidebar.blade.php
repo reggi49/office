@@ -25,14 +25,18 @@
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Modul User</a>
                         <ul class="sub-menu children dropdown-menu">
+                            @if(Auth::user()->level != 1)
+                            <li><i class="fa fa-table"></i><a href="{{ url('users/update/'.Auth::user()->id)}}">Manajemen User</a></li>
+                            @else
                             <li><i class="fa fa-table"></i><a href="{{url('/users')}}">Manajemen User</a></li>
+                            @endif
                             {{-- <li><i class="fa fa-table"></i><a href="tables-data.html">Data Table</a></li> --}}
                         </ul>
                     </li>
                     <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Modul Costumer</a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-envelope-o"></i>Modul Costumer</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-table"></i><a href="{{url('/customer')}}">Manajemen Email</a></li>
+                            <li><i class="fa fa-envelope-o"></i><a href="{{url('/customer')}}">Manajemen Email</a></li>
                             {{-- <li><i class="fa fa-table"></i><a href="tables-data.html">Data Table</a></li> --}}
                         </ul>
                     </li>

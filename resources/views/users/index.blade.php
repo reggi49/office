@@ -55,39 +55,39 @@
                       </tr>
                     </thead>
                           <tbody>
-                @foreach($users as $user)
-
-            <tr>
-                <td>{{ $user->id}}</td>
-                <td>{{ $user->name }}</td>
-                <td>{{ $user->email }}</td>
-                <td>
-                <form id="frm_{{$user->id}}"
-                        action="{{url('users/delete/'.$user->id)}}"
-                        method="post" style="padding-bottom: 0px;margin-bottom: 0px">
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <a href="javascript:if(confirm('Are you sure want to delete?')) $('#frm_{{$user->id}}').submit()"
-                                class="btn btn-danger btn-sm btn-block">Delete</a>
+                <?php $i = ($users->currentpage()-1)* $users->perpage() + 1;?>
+                @foreach($users as $key => $user)
+                
+                <tr>
+                    <td>{{ $i++ }}</td>
+                    <td>{{ $user->name }}</td>
+                    <td>{{ $user->email }}</td>
+                    <td>
+                    <form id="frm_{{$user->id}}"
+                            action="{{url('users/delete/'.$user->id)}}"
+                            method="post" style="padding-bottom: 0px;margin-bottom: 0px">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <a href="javascript:if(confirm('Are you sure want to delete?')) $('#frm_{{$user->id}}').submit()"
+                                    class="btn btn-danger btn-sm btn-block">Delete</a>
+                            </div>
+                            <div class="col-sm-6">
+                                <a href="{{url('users/update/'.$user->id)}}"
+                                    class="btn btn-primary btn-sm btn-block">Edit</a>
+                            </div>
+                            <input type="hidden" name="_method" value="delete"/>
+                            {{csrf_field()}}
                         </div>
-                        <div class="col-sm-6">
-                            <a href="{{url('users/update/'.$user->id)}}"
-                                class="btn btn-primary btn-sm btn-block">Edit</a>
-                        </div>
-                        <input type="hidden" name="_method" value="delete"/>
-                        {{csrf_field()}}
-                    </div>
-                </form>
-                {{-- <a href="{{url('users/'.$user->id.'/edit')}}" class="btn btn-xs btn-default">
-                        <i class="fa fa-edit"></i>
-                    </a>
-                   
-                        <a href="#" class="btn btn-xs btn-danger">
-                            <i class="fa fa-times"></i>
-                        </a> --}}
-                </td>
-            </tr>
-
+                    </form>
+                    {{-- <a href="{{url('users/'.$user->id.'/edit')}}" class="btn btn-xs btn-default">
+                            <i class="fa fa-edit"></i>
+                        </a>
+                    
+                            <a href="#" class="btn btn-xs btn-danger">
+                                <i class="fa fa-times"></i>
+                            </a> --}}
+                    </td>
+                </tr>
                 @endforeach
 
                       </tbody>

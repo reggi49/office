@@ -54,13 +54,13 @@
                                 {!! $errors->first('name','<span class="invalid-feedback">:message</span>') !!}
                             </div>
                         </div>
-                          <div class="row form-group">
+                          {{-- <div class="row form-group">
                             {!! Form::label("username","Username",["class"=>"col-form-label col-md-3 col-lg-2"]) !!}
                             <div class="col-md-9">
                                 {!! Form::text("username",null,["class"=>"form-control".($errors->has('username')?" is-invalid":""),"autofocus",'placeholder'=>'Username']) !!}
                                 {!! $errors->first('username','<span class="invalid-feedback">:message</span>') !!}
                             </div>
-                        </div>
+                        </div> --}}
                           <div class="row form-group">
                             {!! Form::label("email","Email",["class"=>"col-form-label col-md-3 col-lg-2"]) !!}
                             <div class="col-md-9">
@@ -73,6 +73,20 @@
                             <div class="col-md-9">
                                 {!! Form::text("no_telp",null,["class"=>"form-control".($errors->has('no_telp')?" is-invalid":""),"autofocus",'placeholder'=>'No Telp']) !!}
                                 {!! $errors->first('no_telp','<span class="invalid-feedback">:message</span>') !!}
+                            </div>
+                        </div>
+                        <div class="row form-group" @if(Auth::user()->level != 1) style="display: none" @endif>
+                            {!! Form::label("level","Level User",["class"=>"col-form-label col-md-3 col-lg-2"]) !!}
+                            <div class="col-12 col-md-9">
+                            {!! Form::radio('level', '2', true)!!} Pengguna
+                            {!! Form::radio('level', '1')!!} Admin
+                            </div>
+                        </div>
+                        <div class="row form-group" @if(Auth::user()->level != 1) style="display: none" @endif>
+                            {!! Form::label("status","Status User",["class"=>"col-form-label col-md-3 col-lg-2"]) !!}
+                            <div class="col-12 col-md-9">
+                            {!! Form::radio('status', '1', true)!!} Aktif
+                            {!! Form::radio('status', '2')!!} Tidak Aktif
                             </div>
                         </div>
                           <div class="row form-group">

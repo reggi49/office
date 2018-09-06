@@ -46,10 +46,10 @@
                             <div class="col col-md-3"><label for="nama" class=" form-control-label">Nama lengkap</label></div>
                             <div class="col-12 col-md-9"><input type="text" id="nama" name="nama" placeholder="Nama Lengkap" class="form-control"></div>
                           </div>
-                          <div class="row form-group">
+                          {{-- <div class="row form-group">
                             <div class="col col-md-3"><label for="username" class=" form-control-label">Username</label></div>
                             <div class="col-12 col-md-9"><input type="text" id="username" name="username" placeholder="Username" class="form-control"></div>
-                          </div>
+                          </div> --}}
                           <div class="row form-group">
                             <div class="col col-md-3"><label for="email" class=" form-control-label">Email</label></div>
                             <div class="col-12 col-md-9"><input type="email" id="email" name="email" placeholder="Email" class="form-control"></div>
@@ -58,8 +58,19 @@
                             <div class="col col-md-3"><label for="no_telp" class=" form-control-label">No. Telp</label></div>
                             <div class="col-12 col-md-9"><input type="text" id="no_telp" name="no_telp" placeholder="telp" class="form-control"></div>
                           </div>
+                          <div class="chosen-container chosen-container-single chosen-with-drop chosen-container-active" title="" style="width: 100%;"><a class="chosen-single chosen-default">
+                            <span>Level</span>
+                            <div><b></b></div>
+                            </a>
+                            <div class="chosen-drop">
+                            <div class="chosen-search">
+                                <input class="chosen-search-input" type="text" autocomplete="off" tabindex="1">
+                            </div>
+                            <ul class="chosen-results"><li class="active-result" data-option-array-index="1" style="">Pengguna</li><li class="active-result" data-option-array-index="2" style="">Admin</li></ul>
+                            </div>
+                            </div>
                           <div class="row form-group">
-                            <div class="col col-md-3"><label for="password" class=" form-control-label">Passpord</label></div>
+                            <div class="col col-md-3"><label for="password" class=" form-control-label">Password</label></div>
                             <div class="col-12 col-md-9"><input type="password" id="password" name="password" placeholder="Password" class="form-control"></div>
                           </div>
                           <div class="row form-group">
