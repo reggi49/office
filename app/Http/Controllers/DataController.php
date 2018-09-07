@@ -189,7 +189,7 @@ class DataController extends Controller
 
         $pdf = PDF::loadView('exportpdf.detail', $data);
 
-        return $pdf->download('detailpdf.pdf');
+        return $pdf->stream('detailpdf.pdf');
 
     }
     public function allpdf()
@@ -203,7 +203,7 @@ class DataController extends Controller
 
         $pdf = PDF::loadView('exportpdf.all', $items);
 
-        return $pdf->download('allpdf.pdf');
+        return $pdf->stream('allpdf.pdf');
 
     }
 }

@@ -144,7 +144,7 @@
                             <div class="col col-md-3"><label for="file-input" class=" form-control-label">Gambar 2</label></div>
                             <div class="col-12 col-md-9"><input type="file" id="file-input" name="file-input" class="form-control-file"></div>
                           </div> --}}
-                        <button type="submit" class="btn btn-primary btn-sm" @if(Auth::user()->level == 3) disable @endif>
+                        <button type="submit" class="btn btn-primary btn-sm" @if(Auth::user()->level == 3) style="display: none" @endif>
                           <i class="fa fa-dot-circle-o"></i> Submit
                         </button>
                         <button type="reset" class="btn btn-danger btn-sm">

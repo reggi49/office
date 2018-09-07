@@ -44,22 +44,11 @@ class HomeController extends Controller
             ->addColumn('action', function ($datapro) {
                     return 
                         \Form::open(array('method'=>'DELETE', 'route' => array('data.data.destroy',"$datapro->id"),'onsubmit' => 'return ConfirmDelete()')) .
-                        '<a href="detailpdf/'.$datapro->id.'" class=""><i class="fa fa-print"></i></a> | ' .
+                        '<a href="detailpdf/'.$datapro->id.'" target="_blank" class=""><i class="fa fa-print"></i></a> | ' .
                         '<a href="data/'.$datapro->id.'/edit" class=""><i class="fa fa-edit"></i></a> | ' .
                         \Form::button('<i class="fa fa-trash-o"></i>', array('type' => 'submit','class'=>'')) .
                         \Form::close();
             })
-            ->make(true);
-        }else if ($iduser == 2){
-            $datapro = DataPro::select(['id', 'region', 'provinsi', 'kota', 'kecamatan', 'status', 'toko', 'alamat', 'phone']);
-            return \DataTables::of($datapro)
-            ->addColumn('action', function ($datapro) {
-                return 
-                    \Form::open(array('method'=>'DELETE', 'route' => array('data.data.destroy',"$datapro->id"),'onsubmit' => 'return ConfirmDelete()')) .
-                    '<a href="detailpdf/'.$datapro->id.'" class=""><i class="fa fa-print"></i></a> | ' .
-                    '<a href="data/'.$datapro->id.'/edit" class=""><i class="fa fa-edit"></i></a>' .
-                    \Form::close();
-                    })
             ->make(true);
         }else{
             $datapro = DataPro::select(['id', 'region', 'provinsi', 'kota', 'kecamatan', 'status', 'toko', 'alamat', 'phone']);
@@ -67,7 +56,8 @@ class HomeController extends Controller
             ->addColumn('action', function ($datapro) {
                  return 
                     \Form::open(array('method'=>'DELETE', 'route' => array('data.data.destroy',"$datapro->id"),'onsubmit' => 'return ConfirmDelete()')) .
-                    '<a href="detailpdf/'.$datapro->id.'" class=""><i class="fa fa-print"></i></a>' .
+                    '<a href="detailpdf/'.$datapro->id.'" target="_blank" class=""><i class="fa fa-print"></i></a> | ' .
+                    '<a href="data/'.$datapro->id.'/edit" class=""><i class="fa fa-edit"></i></a>' .
                     \Form::close();
                     })
             ->make(true);
