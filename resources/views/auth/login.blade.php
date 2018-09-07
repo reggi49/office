@@ -37,7 +37,7 @@
       </div>
       <div class="row">
         <div class="col-xs-8">
-            <a class="btn btn-link" href="#">
+            <a class="btn btn-link" href="{{url('/')}}/password/reset">
                 {{ __('Forgot Your Password?') }}
             </a>
             {{-- <div class="checkbox">

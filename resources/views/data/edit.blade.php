@@ -38,7 +38,7 @@
                             <div class="col-md-12">
                     <div class="card">
                       <div class="card-header">
-                        <strong>Edit Form</strong> Elements
+                        <strong>Edit Form</strong> Data Seat Maker
                       </div>
                       <div class="card-body card-block">
                         <form action="{{action('DataController@update', $id)}}" method="post" class="form-horizontal">
@@ -177,7 +177,7 @@
    <script>
        var ajaxku=buatajax();
 function ajaxkota(id){
-  var url="http://localhost:8000/getkota/"+id;
+  var url="{{ url('/getkota') }}/"+id;
   ajaxku.onreadystatechange=stateChanged;
   ajaxku.open("GET",url,true);
   ajaxku.send(null);
