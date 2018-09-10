@@ -6,7 +6,7 @@ if(isset($_POST['submit'])){
 		$where = $where.'no = "'.$no.'" or ';
 	}
 	$where 		= substr($where, 0, strlen($where)-4);
-	$qpdf		= mysqli_query($connect,"select  * from data_pro where ".$where);
+	$qpdf		= mysqli_query($connect,"select  * from data_pros where ".$where);
 	$kertas		= $_POST['kertas'];
 
 	if($kertas  == "continous"){

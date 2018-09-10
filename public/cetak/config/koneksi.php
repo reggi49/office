@@ -7,7 +7,7 @@ require_once('fungsi_validasi.php');
 $server =  "127.0.0.1";
 $username = "root";
 $password = "";
-$database = "mbtech_office_2018_07_23";
+$database = "mbtech_office_new";
 
 // Koneksi dan memilih database di server
 $connect = mysqli_connect($server,$username,$password) or die("Koneksi gagal");
