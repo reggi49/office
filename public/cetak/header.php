@@ -6,8 +6,8 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Sufee Admin - HTML5 Admin Template</title>
-    <meta name="description" content="Sufee Admin - HTML5 Admin Template">
+    <title>MBTech Office - Cetak Data</title>
+    <meta name="description" content="MBTech Office - Cetak Data">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="apple-touch-icon" href="apple-icon.png">
@@ -21,7 +21,6 @@
     <link rel="stylesheet" href="../css/cs-skin-elastic.css">
     <!-- <link rel="stylesheet" href="assets/css/bootstrap-select.less"> -->
     <link rel="stylesheet" href="../scss/style.css">
-    <link href="../assets/css/lib/vector-map/jqvmap.min.css" rel="stylesheet">
 
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
 
@@ -47,13 +46,13 @@
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li class="active">
-                        <a href="{{url('/')}}"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
+                        <a href="http://mbtech.info/newoffice"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
                     </li>
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Modul Data</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-puzzle-piece"></i><a href="{{url('/data')}}">Data MBTech</a></li>
-                            <li><i class="fa fa-id-badge"></i><a href="{{url('/cetak')}}">Cetak Data</a></li>
+                            <li><i class="fa fa-puzzle-piece"></i><a href="http://localhost:8000/data">Data MBTech</a></li>
+                            <li><i class="fa fa-id-badge"></i><a href="http://localhost:8000/cetak">Cetak Data</a></li>
                         </ul>
                     </li>
                     <li class="menu-item-has-children dropdown">
@@ -64,7 +63,7 @@
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-envelope-o"></i>Modul Costumer</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-envelope-o"></i><a href="{{url('/customer')}}">Manajemen Email</a></li>
+                            <li><i class="fa fa-envelope-o"></i><a href="http://localhost:8000/customer">Manajemen Email</a></li>
                         </ul>
                     </li>
                 </ul>

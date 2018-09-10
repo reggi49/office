@@ -3,10 +3,11 @@ include "config/koneksi.php";
 if(isset($_POST['submit'])){
 	$where = '';
 	foreach($_POST['no'] as $no){
-		$where = $where.'no = "'.$no.'" or ';
+		$where = $where.'id = "'.$no.'" or ';
 	}
 	$where 		= substr($where, 0, strlen($where)-4);
 	$qpdf		= mysqli_query($connect,"select  * from data_pros where ".$where);
+	// print($qpdf);die;
 	$kertas		= $_POST['kertas'];
 
 	if($kertas  == "continous"){

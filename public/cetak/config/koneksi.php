@@ -2,7 +2,6 @@
 
 // panggil fungsi validasi xss dan injection
 require_once('fungsi_validasi.php');
-// include '../../wp-config.php';
 
 $server =  "127.0.0.1";
 $username = "root";
