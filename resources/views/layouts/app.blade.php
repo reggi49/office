@@ -106,15 +106,16 @@
             // }
         },
         columns: [
-            {data: 'id', name: 'id'},
+            {data: 'id', name: 'id', orderable: false},
             {data: 'region', name: 'region'},
-            {data: 'provinsi', name: 'provinsi', orderable: false},
-            {data: 'kota', name: 'kota', orderable: false},
+            {data: 'provinsi', name: 'provinsi'},
+            {data: 'kota', name: 'kota'},
             {data: 'kecamatan', name: 'kecamatan'},
             {data: 'status', name: 'status'},
             {data: 'toko', name: 'toko'},
             {data: 'alamat', name: 'alamat'},
-            {data: 'phone', name: 'phone'},
+            {data: 'hp', name: 'hp', orderable: false},
+            {data: 'phone', name: 'phone', orderable: false},
             {data: 'action', name: 'action', orderable: false, searchable: false}
         ]
     });

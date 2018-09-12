@@ -54,6 +54,7 @@
                         <th>Toko</th>
                         <th>Alamat</th>
                         <th>Phone</th>
+                        <th>Telp</th>
                         <th width="100px">Aksi</th>
                       </tr>
                     </thead>

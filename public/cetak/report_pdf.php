@@ -44,7 +44,7 @@ if(isset($_POST['submit'])){
 			if($i % 2 == 0){
 				$content .= "</tr><tr>";
 			}
-			$content	.= "<td style='width:285.1648px;   vertical-align:top; text-align:center; font-family:Arial; font-size:11px; line-height:15px;  height:147.0862px; float:left;margin:9.448818898px;'><b><br/>KEPADA YTH. <br/> <span style=' text-transform:uppercase;'>".$dpdf['contact']."</span><br/>".$dpdf['toko']."</b><br/>".$dpdf['alamat']."<br/>".$dpdf['provinsi']."<br/>".$dpdf['hp']."</td>";
+			$content	.= "<td style='width:285.1648px;   vertical-align:top; text-align:center; font-family:Arial; font-size:11px; line-height:15px;  height:147.0862px; float:left;margin:9.448818898px;'><b><br/>KEPADA YTH. <br/> <span style=' text-transform:uppercase;'>".$dpdf['contact']."</span><br/>".$dpdf['toko']."</b><br/> <p style='padding: -10px 10px 0 10px'>".$dpdf['alamat']."<br/> ".$dpdf['provinsi']."<br/>".$dpdf['hp']."</p></td>";
 			$i++;
 		}
 		$content	.= "</tr></table>";

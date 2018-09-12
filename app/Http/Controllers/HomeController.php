@@ -39,7 +39,7 @@ class HomeController extends Controller
     {
         $iduser = $request->user()->level;
         if($iduser == 1){
-            $datapro = DataPro::select(['id', 'region', 'provinsi', 'kota', 'kecamatan', 'status', 'toko', 'alamat', 'phone']);
+            $datapro = DataPro::select(['id', 'region', 'provinsi', 'kota', 'kecamatan', 'status', 'toko', 'alamat', 'hp','phone']);
             return \DataTables::of($datapro)
             ->addColumn('action', function ($datapro) {
                     return 
@@ -51,7 +51,7 @@ class HomeController extends Controller
             })
             ->make(true);
         }else{
-            $datapro = DataPro::select(['id', 'region', 'provinsi', 'kota', 'kecamatan', 'status', 'toko', 'alamat', 'phone']);
+            $datapro = DataPro::select(['id', 'region', 'provinsi', 'kota', 'kecamatan', 'status', 'toko', 'alamat', 'hp','phone']);
             return \DataTables::of($datapro)
             ->addColumn('action', function ($datapro) {
                  return 

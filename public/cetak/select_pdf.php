@@ -316,7 +316,7 @@ if(mysqli_num_rows( $hasil)>0){
 	}
 	echo "</table></div>";
 	echo "<input type='hidden' name='n' value='".$i."' />";
-	echo "Sticker: <select name='kertas'><option value='continous'>continous</option><option value='tom'>tom & jerry</option><option value='a4'>A4 + border</option></select>";
+	echo "Sticker: <select name='kertas'><option value='continous'>continous</option><option value='tom'>tom & jerry 121</option><option value='a4'>A4 + border</option></select>";
 	echo "<p><input type='submit' class='btn btn-success btn-sm' value='Pilih' name='submit'></p>";
 	echo "</form></div>";
 }else{
