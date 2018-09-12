@@ -232,6 +232,9 @@ include('header.php');
                                             <button type="reset" class="btn btn-danger btn-sm">
                                             <i class="fa fa-ban"></i> Reset
                                             </button>
+                                            <button type="submit" formaction="xls-export.php" method="post" class="btn btn-success btn-sm" style="float:right;">
+                                            <i class="fa fa-star"></i> Export ke Excel
+                                            </button>
                                         </div>
                                   </form>
                               </div>
