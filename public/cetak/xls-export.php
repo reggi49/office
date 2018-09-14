@@ -79,7 +79,7 @@ if (isset($_POST['desCat']))
 
 
 $sql = "Select region,provinsi,kota,kecamatan as Klasifikasi,status as Kode,toko,alamat,phone,faxs,email,hp,contact,b_day as Birthday,alamat_rumah,religion,celebration from data_pros where ".$bagianWhere;
-$result = @mysqli_query($connect,$sql)	or die("Couldn't execute query:<br>".mysqli_error($sql).'<br>'.mysqli_errno($connect));
+$result = @mysqli_query($connect,$sql)	or die("Data Kosong atau Koneksi Bermasalah:<br>".mysqli_error($sql).'<br>'.mysqli_errno($connect));
 	header('Content-Type: application/vnd-ms-excel');	//define header info for browser
 	header('Content-Disposition: attachment; filename='.'mbtech'.'-'.date('Ymd').'.xls');
 	header('Pragma: no-cache');
