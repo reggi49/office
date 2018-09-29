@@ -111,11 +111,21 @@
                           </div>
                           <div class="row form-group">
                             <div class="col col-md-3"><label for="contact" class=" form-control-label">Agama</label></div>
-                            <div class="col-12 col-md-9"><input type="text" id="religion" name="religion" placeholder="Agama" class="form-control"></div>
+                            <div class="col-12 col-md-9">
+                            {{-- <div class="col-12 col-md-9"><input type="text" id="religion" name="religion" placeholder="Agama" class="form-control"></div> --}}
+                            <select name="religion" id="religion" onchange="myReligion()" class="form-control">
+                                <option value="Islam">Islam</option>
+                                <option value="Protestan">Protestan</option>
+                                <option value="Katolik">Katolik</option>
+                                <option value="Hindu">Hindu</option>
+                                <option value="Buddha">Buddha</option>
+                                <option value="Khonghucu">Khonghucu</option>
+                            </select>
+                            </div>
                           </div>
                           <div class="row form-group">
                             <div class="col col-md-3"><label for="contact" class=" form-control-label">Hari Raya</label></div>
-                            <div class="col-12 col-md-9"><input type="text" id="celebration" name="celebration" placeholder="Hari Raya" class="form-control"></div>
+                            <div class="col-12 col-md-9"><input type="text" id="celebration" name="celebration" placeholder="Hari Raya" class="form-control" value="Idul Fitri"></div>
                           </div>
                           <div class="row form-group">
                             <div class="col col-md-3"><label class=" form-control-label">Status</label></div>
@@ -135,6 +145,14 @@
                                 </label>
                               </div>
                             </div>
+                          </div>
+                          <div class="row form-group">
+                            <div class="col col-md-3"><label for="contact" class=" form-control-label">Latitude</label></div>
+                            <div class="col-12 col-md-9"><input type="text" id="latitude" name="latitude" placeholder="Latitude" class="form-control"></div>
+                          </div>
+                          <div class="row form-group">
+                            <div class="col col-md-3"><label for="contact" class=" form-control-label">Longitude</label></div>
+                            <div class="col-12 col-md-9"><input type="text" id="longitude" name="longitude" placeholder="Longitude" class="form-control"></div>
                           </div>
                           <div class="row form-group">
                             <div class="col col-md-3"><label for="file-input" class=" form-control-label">Gambar 1</label></div>
@@ -216,5 +234,24 @@ function stateChanged(){
     // document.getElementById("table").style.display='none';
   }
 }
+
+function myReligion(){
+  if(document.getElementById('religion').value == "Islam") {
+    document.getElementById("celebration").value = "Idul Fitri";
+  }else if (document.getElementById('religion').value == "Protestan") {
+    document.getElementById("celebration").value = "Natal";
+  }else if (document.getElementById('religion').value == "Katolik") {
+    document.getElementById("celebration").value = "Natal";
+  }else if (document.getElementById('religion').value == "Hindu") {
+    document.getElementById("celebration").value = "Nyepi";
+  }else if (document.getElementById('religion').value == "Buddha") {
+    document.getElementById("celebration").value = "Waisak";
+  }else if (document.getElementById('religion').value == "Khonghucu") {
+    document.getElementById("celebration").value = "Imlek";
+  } else {
+    document.getElementById("celebration").value = "-";
+  }
+
+} 
        </script>
 @endsection

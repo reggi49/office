@@ -72,13 +72,15 @@ class DataController extends Controller
         $datapro->religion=$request->get('religion');
         $datapro->celebration=$request->get('celebration');
         $datapro->keterangan=$request->get('keterangan');
+        $datapro->latitude=$request->get('latitude');
+        $datapro->longitude=$request->get('longitude');
         $datapro->status=$request->get('status');
         // $datapro->deleted_at='2018-00-00';
         if($request->hasfile('gambar1')){
             $datapro->gambar=$gambar1;
             $datapro->save();
         }else{
-            $datapro->gambar = false;
+            $datapro->gambar = "noimage.jpg";
             $datapro->save();
         }
         // dd($datapro);
@@ -142,13 +144,14 @@ class DataController extends Controller
         $datapro->religion=$request->get('religion');
         $datapro->celebration=$request->get('celebration');
         $datapro->keterangan=$request->get('keterangan');
+        $datapro->latitude=$request->get('latitude');
+        $datapro->longitude=$request->get('longitude');
         $datapro->status=$request->get('status');
         // $datapro->deleted_at='2018-00-00';
         if($request->hasfile('gambar1')){
-            $datapro->gambar=$gambar1;
+            $datapro->gambar= $this->uploadFoto($request);
             $datapro->save();
         }else{
-            $datapro->gambar = false;
             $datapro->save();
         }
         return redirect('data')->with('success', 'Information has been updated');
@@ -165,6 +168,20 @@ class DataController extends Controller
         $datapro = DataPro::find($id);
         $datapro->delete();
         return redirect('data')->with('success','Information has been  deleted');
+    }
+
+    private function uploadFoto(Request $request)
+    {
+      $foto = $request->file('gambar1') ;
+      $ext = $foto->getClientOriginalExtension();
+ 
+      if($request->file('gambar1')->isValid()){
+        $namaFoto = md5(date('YmdHis')).".$ext";
+        $upload_path = 'images';
+        $request->file('gambar1')->move($upload_path, $namaFoto);
+        return $namaFoto;
+      }
+      return false;
     }
 
     public function getKota($id) 
