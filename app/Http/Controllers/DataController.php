@@ -45,12 +45,6 @@ class DataController extends Controller
      */
     public function store(Request $request)
     {
-        if($request->hasfile('gambar1'))
-         {
-            $file = $request->file('gambar1');
-            $gambar1=time().$file->getClientOriginalName();
-            $file->move(public_path().'/images/', $gambar1);
-         }
         $datapro= new \App\DataPro;
         $datapro->region=$request->get('region');
         $datapro->provinsi=substr($request->get('provinsi'),3);
@@ -77,7 +71,7 @@ class DataController extends Controller
         $datapro->status=$request->get('status');
         // $datapro->deleted_at='2018-00-00';
         if($request->hasfile('gambar1')){
-            $datapro->gambar=$gambar1;
+            $datapro->gambar=$this->uploadFoto($request);
             $datapro->save();
         }else{
             $datapro->gambar = "noimage.jpg";

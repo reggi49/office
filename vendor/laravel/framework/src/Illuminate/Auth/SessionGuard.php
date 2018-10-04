@@ -128,8 +128,10 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
         // First we will try to load the user using the identifier in the session if
         // one exists. Otherwise we will check for a "remember me" cookie in this
         // request, and if one exists, attempt to retrieve the user using that.
-        if (! is_null($id) && $this->user = $this->provider->retrieveById($id)) {
-            $this->fireAuthenticatedEvent($this->user);
+        if (! is_null($id)) {
+            if ($this->user = $this->provider->retrieveById($id)) {
+                $this->fireAuthenticatedEvent($this->user);
+            }
         }
 
         // If the user is null, but we decrypt a "recaller" cookie we can attempt to
@@ -539,7 +541,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
      *
      * @param  string  $password
      * @param  string  $attribute
-     * @return bool|null
+     * @return null|bool
      */
     public function logoutOtherDevices($password, $attribute = 'password')
     {
@@ -547,13 +549,9 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
             return;
         }
 
-        $result = tap($this->user()->forceFill([
+        return tap($this->user()->forceFill([
             $attribute => Hash::make($password),
         ]))->save();
-
-        $this->queueRecallerCookie($this->user());
-
-        return $result;
     }
 
     /**

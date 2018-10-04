@@ -14,7 +14,7 @@
 
    </head>
    <body> 
-<h1 style="text-align: center;"><img style="font-size: 14px; float: left;" src="https://www.mbtech.info/images/MBtech-Logo.png" alt="" width="150" height="100" /></h1>
+<h1 style="text-align: center;"><img style="font-size: 14px; float: left;" src="https://www.mbtech.info/images/MBtech-Logo.jpg" alt="" width="150" height="100" /></h1>
 <h1 style="text-align: center;"><strong>PT POLYSTAR INTERNATIONAL</strong></h1>
 <p style="text-align: center;">Jalan Boulevard Raya Blok WE2 No. 3D, Kelapa Gading Timur,</p>
 <p style="text-align: center;">Kelapa Gading, Kota Jakarta Utara, Daerah Khusus Ibukota Jakarta 14240</p>
@@ -46,9 +46,9 @@
 <td style="padding-left: 30px;">{{$data->toko}}</td>
 </tr>
 <tr style="padding-left: 30px;">
-<td style="padding-left: 30px;">Kontak</td>
+<td style="padding-left: 30px;">Alamat</td>
 <td style="padding-left: 30px;">:</td>
-<td style="padding-left: 30px;">{{$data->contact}}</td>
+<td style="padding-left: 30px;">{{$data->alamat}}</td>
 </tr>
 <tr style="padding-left: 30px;">
 <td style="padding-left: 30px;">Phone</td>
@@ -56,14 +56,19 @@
 <td style="padding-left: 30px;">{{$data->phone}}</td>
 </tr>
 <tr style="padding-left: 30px;">
+<td style="padding-left: 30px;">No. HP</td>
+<td style="padding-left: 30px;">:</td>
+<td style="padding-left: 30px;">{{$data->hp}}</td>
+</tr>
+<tr style="padding-left: 30px;">
 <td style="padding-left: 30px;">Email</td>
 <td style="padding-left: 30px;">:</td>
 <td style="padding-left: 30px;">{{$data->email}}</td>
 </tr>
 <tr style="padding-left: 30px;">
-<td style="padding-left: 30px;">No. HP</td>
+<td style="padding-left: 30px;">Kontak</td>
 <td style="padding-left: 30px;">:</td>
-<td style="padding-left: 30px;">{{$data->hp}}</td>
+<td style="padding-left: 30px;">{{$data->contact}}</td>
 </tr>
 <tr style="padding-left: 30px;">
 <td style="padding-left: 30px;">Tanggal Lahir</td>
@@ -80,11 +85,7 @@
 <td style="padding-left: 30px;">:</td>
 <td style="padding-left: 30px;">{{$data->celebration}}</td>
 </tr> --}}
-<tr style="padding-left: 30px;">
-<td style="padding-left: 30px;">Alamat</td>
-<td style="padding-left: 30px;">:</td>
-<td style="padding-left: 30px;">{{$data->alamat}}</td>
-</tr>
+
 </tbody>
 </table>
 

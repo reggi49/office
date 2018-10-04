@@ -38,7 +38,8 @@ Did you forget a "use" statement for another namespace?"
   ["line":protected]=>
   int(%d)
   ["trace":"Exception":private]=>
-  array(%d) {%A}
+  array(0) {
+  }
   ["previous":"Exception":private]=>
   NULL
   ["severity":protected]=>

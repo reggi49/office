@@ -152,12 +152,12 @@ class Builder
      */
     public function withoutGlobalScopes(array $scopes = null)
     {
-        if (! is_array($scopes)) {
-            $scopes = array_keys($this->scopes);
-        }
-
-        foreach ($scopes as $scope) {
-            $this->withoutGlobalScope($scope);
+        if (is_array($scopes)) {
+            foreach ($scopes as $scope) {
+                $this->withoutGlobalScope($scope);
+            }
+        } else {
+            $this->scopes = [];
         }
 
         return $this;
@@ -543,7 +543,7 @@ class Builder
         // and error prone. We don't want constraints because we add eager ones.
         $relation = Relation::noConstraints(function () use ($name) {
             try {
-                return $this->getModel()->newInstance()->$name();
+                return $this->getModel()->{$name}();
             } catch (BadMethodCallException $e) {
                 throw RelationNotFoundException::make($this->getModel(), $name);
             }

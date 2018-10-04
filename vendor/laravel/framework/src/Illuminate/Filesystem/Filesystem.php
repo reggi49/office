@@ -452,8 +452,10 @@ class Filesystem
      */
     public function moveDirectory($from, $to, $overwrite = false)
     {
-        if ($overwrite && $this->isDirectory($to) && ! $this->deleteDirectory($to)) {
-            return false;
+        if ($overwrite && $this->isDirectory($to)) {
+            if (! $this->deleteDirectory($to)) {
+                return false;
+            }
         }
 
         return @rename($from, $to) === true;

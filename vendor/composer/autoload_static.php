@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit55b21aed638ba21b2f97936ae6cac545
+class ComposerStaticInitfe47c41db0761231cf8f65722d10d19c
 {
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
@@ -477,7 +477,6 @@ class ComposerStaticInit55b21aed638ba21b2f97936ae6cac545
         'App\\Http\\Controllers\\Auth\\RegisterController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/RegisterController.php',
         'App\\Http\\Controllers\\Auth\\ResetPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ResetPasswordController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
-        'App\\Http\\Controllers\\CustomerController' => __DIR__ . '/../..' . '/app/Http/Controllers/CustomerController.php',
         'App\\Http\\Controllers\\DataController' => __DIR__ . '/../..' . '/app/Http/Controllers/DataController.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
         'App\\Http\\Controllers\\UsersController' => __DIR__ . '/../..' . '/app/Http/Controllers/UsersController.php',
@@ -2237,7 +2236,6 @@ class ComposerStaticInit55b21aed638ba21b2f97936ae6cac545
         'Maatwebsite\\Excel\\Concerns\\ShouldAutoSize' => __DIR__ . '/..' . '/maatwebsite/excel/src/Concerns/ShouldAutoSize.php',
         'Maatwebsite\\Excel\\Concerns\\WithCharts' => __DIR__ . '/..' . '/maatwebsite/excel/src/Concerns/WithCharts.php',
         'Maatwebsite\\Excel\\Concerns\\WithColumnFormatting' => __DIR__ . '/..' . '/maatwebsite/excel/src/Concerns/WithColumnFormatting.php',
-        'Maatwebsite\\Excel\\Concerns\\WithCustomChunkSize' => __DIR__ . '/..' . '/maatwebsite/excel/src/Concerns/WithCustomChunkSize.php',
         'Maatwebsite\\Excel\\Concerns\\WithCustomCsvSettings' => __DIR__ . '/..' . '/maatwebsite/excel/src/Concerns/WithCustomCsvSettings.php',
         'Maatwebsite\\Excel\\Concerns\\WithCustomQuerySize' => __DIR__ . '/..' . '/maatwebsite/excel/src/Concerns/WithCustomQuerySize.php',
         'Maatwebsite\\Excel\\Concerns\\WithCustomStartCell' => __DIR__ . '/..' . '/maatwebsite/excel/src/Concerns/WithCustomStartCell.php',
@@ -4476,10 +4474,10 @@ class ComposerStaticInit55b21aed638ba21b2f97936ae6cac545
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit55b21aed638ba21b2f97936ae6cac545::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit55b21aed638ba21b2f97936ae6cac545::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit55b21aed638ba21b2f97936ae6cac545::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInit55b21aed638ba21b2f97936ae6cac545::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInitfe47c41db0761231cf8f65722d10d19c::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitfe47c41db0761231cf8f65722d10d19c::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInitfe47c41db0761231cf8f65722d10d19c::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInitfe47c41db0761231cf8f65722d10d19c::$classMap;
 
         }, null, ClassLoader::class);
     }
