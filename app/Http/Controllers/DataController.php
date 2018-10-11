@@ -148,7 +148,7 @@ class DataController extends Controller
         }else{
             $datapro->save();
         }
-        redirect(Request::url());
+        return redirect('data')->with('success', 'Information has been updated');
     }
 
     /**
