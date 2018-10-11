@@ -149,7 +149,7 @@ class DataController extends Controller
             $datapro->save();
         }
         
-        // return redirect('data')->with('success', 'Information has been updated');
+        return redirect()->back();
     }
 
     /**
