@@ -33,9 +33,17 @@
         <div class="content mt-3">
             <div class="animated fadeIn">
                 <div class="col-md-12">
-                        
-                        <div class="card-body">
-                            <div class="col-md-12">
+                    @if(Session::has('message'))
+                    <div class="alert  alert-success alert-dismissible fade show" role="alert">
+                        <span class="badge badge-pill badge-success">Info</span>{{ Session::get('message') }}</p>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+                    </div>
+                    @endif
+                    <div class="card-body">
+                    <div class="col-md-12">
                     <div class="card">
                       <div class="card-header">
                         <strong>Edit Form</strong> Data Seat Maker
