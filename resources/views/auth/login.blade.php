@@ -26,36 +26,30 @@
       <div class="form-group has-feedback">
         <label>Email address</label>
         <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
-        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-        
+        {{-- <span class="glyphicon glyphicon-envelope form-control-feedback"></span> --}}
       </div>
       <div class="form-group has-feedback">
         <label>Password</label>
         <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
-        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-        
+        {{-- <span class="glyphicon glyphicon-lock form-control-feedback"></span>    --}}
       </div>
-      <div class="row">
-        <div class="col-xs-8">
-            <a class="btn btn-link" href="{{url('/')}}/password/reset">
+      <div class="checkbox">
+        <label>
+            <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }} checked> {{ __('Remember Me') }} 
+        </label>
+        <label class="pull-right">
+            <a href="{{url('/')}}/password/reset">
                 {{ __('Forgot Your Password?') }}
-            </a>
-            {{-- <div class="checkbox">
-                <label>
-                    <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> {{ __('Remember Me') }}
-                </label>
-            </div> --}}
-        </div>
-        <!-- /.col -->
-        <button type="submit" class="btn btn-success btn-flat m-b-30 m-t-30">{{ __('Login') }}</button>
-        <!-- /.col -->
+            </a> 
+        </label>
       </div>
+        <button type="submit" class="btn btn-success btn-flat m-b-30 m-t-30">{{ __('Login') }}</button>
     </form>
 
    <div class="social-login-content">
         <div class="social-button">
         <form action="{{ route('redirect') }}">
-            <button type="submit" class="btn social facebook btn-flat btn-addon mb-3"><i class="ti-google"></i>Sign in with Google</button>
+            <button type="submit" class="btn social facebook btn-flat btn-addon mb-3" style="background:#dd4b39"><i class="ti-google"></i>Sign in with Google</button>
             </form>
             {{-- <button type="button" class="btn social twitter btn-flat btn-addon mt-2"><i class="ti-twitter"></i>Sign in with twitter</button> --}}
         </div>
