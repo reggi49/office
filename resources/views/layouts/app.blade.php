@@ -122,10 +122,10 @@
             {data: 'kecamatan', name: 'kecamatan'},
             {data: 'status', name: 'status'},
             {data: 'toko', name: 'toko'},
-            {data: 'alamat', name: 'alamat'},
-            {data: 'hp', name: 'hp', orderable: false},
-            {data: 'phone', name: 'phone', orderable: false},
-            {data: 'provinsi', name: 'provinsi'},
+            {data: 'alamat', name: 'alamat', searchable: false},
+            {data: 'hp', name: 'hp', orderable: false},searchable: false,
+            {data: 'phone', name: 'phone', orderable: false,searchable: false},
+            {data: 'provinsi', name: 'provinsi',searchable: false},
             {data: 'region', name: 'region'},
             {data: 'action', name: 'action', orderable: false, searchable: false}
         ]
