@@ -126,7 +126,7 @@
             {data: 'hp', name: 'hp', orderable: false,searchable: false},
             {data: 'phone', name: 'phone', orderable: false,searchable: false},
             {data: 'provinsi', name: 'provinsi',searchable: false},
-            {data: 'region', name: 'region',searchable: false}},
+            {data: 'region', name: 'region',searchable: false},
             {data: 'action', name: 'action', orderable: false, searchable: false}
         ]
     });
