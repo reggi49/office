@@ -25,15 +25,15 @@
     <link rel="stylesheet" href="{{ asset('css/cs-skin-elastic.css') }}">
     {{-- <link rel="stylesheet" href="{{ asset('css/dataTables.bootstrap.min.css') }}"> --}}
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/rowreorder/1.2.5/css/rowReorder.dataTables.min.css">
+    {{-- <link rel="stylesheet" href="https://cdn.datatables.net/rowreorder/1.2.5/css/rowReorder.dataTables.min.css"> --}}
     <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css">
-    <!-- <link rel="stylesheet" href="assets/css/bootstrap-select.less"> -->
+    {{-- <!-- <link rel="stylesheet" href="assets/css/bootstrap-select.less"> --> --}}
     <link rel="stylesheet" href="{{ asset('scss/style.css') }}">
     {{-- <link href="{{ asset('css/lib/vector-map/jqvmap.min.css') }}" rel="stylesheet"> --}}
 
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
 
-    <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script> -->
+    {{-- <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script> --> --}}
 
     </head>
     <body class="bg-dark">
@@ -51,7 +51,7 @@
     {{-- <script src="{{ asset('js/lib/data-table/dataTables.bootstrap.min.js') }}"></script> --}}
     {{-- <script src="{{ asset('js/lib/data-table/dataTables.buttons.min.js') }}"></script> --}}
     <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/rowreorder/1.2.5/js/dataTables.rowReorder.min.js"></script>
+    {{-- <script src="https://cdn.datatables.net/rowreorder/1.2.5/js/dataTables.rowReorder.min.js"></script> --}}
     <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
     
  
@@ -95,14 +95,6 @@
         }
     </script>
 
-   {{-- <script src="{{ asset('js/lib/chart-js/Chart.bundle.js') }}"></script> --}}
-    {{-- <script src="{{ asset('js/dashboard.js') }}"></script> --}}
-    {{-- <script src="{{ asset('js/widgets.js') }}"></script> --}}
-    {{-- <script src="{{ asset('js/lib/vector-map/jquery.vmap.js') }}"></script>
-    <script src="{{ asset('js/lib/vector-map/jquery.vmap.min.js') }}"></script>
-    <script src="{{ asset('js/lib/vector-map/jquery.vmap.sampledata.js') }}"></script>
-    <script src="{{ asset('js/lib/vector-map/country/jquery.vmap.world.js') }}"></script>
-    --}}
     <script>
         var oTable = $('.datatable').DataTable({
         rowReorder: {
