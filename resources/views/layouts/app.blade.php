@@ -118,7 +118,7 @@
         },
         columns: [
             {data: 'id', name: 'id', orderable: false},
-            {data: 'kota', name: 'kota'},
+            {data: 'kota', name: 'kota',searchable: false},
             {data: 'kecamatan', name: 'kecamatan'},
             {data: 'status', name: 'status'},
             {data: 'toko', name: 'toko'},
