@@ -36,25 +36,30 @@
                     <div class="card">
                         <div class="card-header">
                             <strong class="card-title">Data Table</strong>
+                            <div class="card-actions">
+                                <a href="{{ url ('/data/create') }}" class="btn-setting" @if(Auth::user()->level == 3) style="display: none" @endif><i class="fa fa-pencil"></i> Add New Post</a>               
+                                {{-- <button class="btn-minimize" type="button" data-toggle="collapse" data-target="" aria-expanded="false" aria-controls="collapseExample">
+                                    <i class="fa fa-angle-down"></i>
+                                </button> --}}
+                            </div>
                         </div>
                         
                         <div class="card-body">
                             <div class="pull-left">
-                <a href="{{ url ('/data/create') }}" class="btn btn-success" @if(Auth::user()->level == 3) style="display: none" @endif><i class="fa fa-pencil"></i> Add New Post</a>               
-              </div>
-                  <table id="bootstrap-data-table" class="table table-bordered table-striped  datatable">
+                      </div>
+                  <table id="bootstrap-data-table" class="table table-bordered table-striped datatable responsive" tyle="width:100%">
                     <thead>
                       <tr>
                         <th width="10px">No</th>
-                        <th>Region</th>
-                        <th>Provinsi</th>
                         <th>Kota</th>
                         <th>Klasifikasi</th>
-                        <th width="10px">Kode</th>
+                        <th>Kode</th>
                         <th>Toko</th>
                         <th>Alamat</th>
                         <th>Phone</th>
                         <th>Telp</th>
+                        <th>Provinsi</th>
+                        <th>Region</th>
                         <th width="100px">Aksi</th>
                       </tr>
                     </thead>

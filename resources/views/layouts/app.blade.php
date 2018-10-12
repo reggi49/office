@@ -23,7 +23,10 @@
     <link rel="stylesheet" href="{{ asset('css/themify-icons.css') }}">
     <link rel="stylesheet" href="{{ asset('css/flag-icon.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/cs-skin-elastic.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/dataTables.bootstrap.min.css') }}">
+    {{-- <link rel="stylesheet" href="{{ asset('css/dataTables.bootstrap.min.css') }}"> --}}
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/rowreorder/1.2.5/css/rowReorder.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css">
     <!-- <link rel="stylesheet" href="assets/css/bootstrap-select.less"> -->
     <link rel="stylesheet" href="{{ asset('scss/style.css') }}">
     {{-- <link href="{{ asset('css/lib/vector-map/jqvmap.min.css') }}" rel="stylesheet"> --}}
@@ -45,8 +48,12 @@
     <script src="{{ asset('js/main.js') }}"></script>
 
     <script src="{{ asset('js/lib/data-table/datatables.min.js') }}"></script>
-    <script src="{{ asset('js/lib/data-table/dataTables.bootstrap.min.js') }}"></script>
-    <script src="{{ asset('js/lib/data-table/dataTables.buttons.min.js') }}"></script>
+    {{-- <script src="{{ asset('js/lib/data-table/dataTables.bootstrap.min.js') }}"></script> --}}
+    {{-- <script src="{{ asset('js/lib/data-table/dataTables.buttons.min.js') }}"></script> --}}
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/rowreorder/1.2.5/js/dataTables.rowReorder.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
+    
  
      {{-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">   --}}
   <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.css" rel="stylesheet">  
@@ -98,7 +105,10 @@
     --}}
     <script>
         var oTable = $('.datatable').DataTable({
-        processing: true,
+        rowReorder: {
+            selector: 'td:nth-child(2)'
+        },
+        responsive: true,
         serverSide: true,
         ajax: { 
             url: '{{ route('datatable/getdata') }}'
@@ -108,8 +118,6 @@
         },
         columns: [
             {data: 'id', name: 'id', orderable: false},
-            {data: 'region', name: 'region'},
-            {data: 'provinsi', name: 'provinsi'},
             {data: 'kota', name: 'kota'},
             {data: 'kecamatan', name: 'kecamatan'},
             {data: 'status', name: 'status'},
@@ -117,6 +125,8 @@
             {data: 'alamat', name: 'alamat'},
             {data: 'hp', name: 'hp', orderable: false},
             {data: 'phone', name: 'phone', orderable: false},
+            {data: 'provinsi', name: 'provinsi'},
+            {data: 'region', name: 'region'},
             {data: 'action', name: 'action', orderable: false, searchable: false}
         ]
     });
