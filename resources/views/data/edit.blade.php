@@ -62,7 +62,7 @@
                               <select name="provinsi" id="provinsi" class="form-control" onchange="ajaxkota(this.value)">
                                 @foreach($dataprovinsi as $provinsi)
                                     <option value="{{ $provinsi->id_prov }},{{ $provinsi->nama }}"
-                                      @if (strtolower($provinsi->nama) === strtolower($datapro->provinsi))
+                                      @if (strtolower(str_replace(" ","",$provinsi->nama)) === strtolower(str_replace(" ","",$datapro->provinsi)))
                                           selected
                                       @endif
                                       >
