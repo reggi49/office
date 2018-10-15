@@ -47,7 +47,7 @@
                         <div class="card-body">
                             <div class="pull-left">
                       </div>
-                  <table id="bootstrap-data-table" class="table table-bordered table-striped datatable responsive" tyle="width:100%">
+                  <table id="bootstrap-data-table" class="table table-bordered table-striped datatable responsive" style="width:100%">
                     <thead>
                       <tr>
                         <th width="10px">No</th>
