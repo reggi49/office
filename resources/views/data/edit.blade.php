@@ -21,7 +21,7 @@
                 <div class="page-header float-right">
                     <div class="page-title">
                         <ol class="breadcrumb text-right">
-                            <li><a href="#">Dashboard</a></li>
+                            <li><a href="{{url('/')}}">Dashboard</a></li>
                             <li><a href="{{ url('/data')}}">Data Table</a></li>
                             <li class="active">Edit Data</li>
                         </ol>

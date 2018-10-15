@@ -24,7 +24,7 @@
                 <div class="page-header float-right">
                     <div class="page-title">
                         <ol class="breadcrumb text-right">
-                            <li><a href="#">Dashboard</a></li>
+                        <li><a href="{{url('/')}}">Dashboard</a></li>
                             <li class="active">Users Data</li>
                         </ol>
                     </div>
@@ -40,11 +40,14 @@
                     <div class="card">
                         <div class="card-header">
                             <strong class="card-title">Data Table</strong>
+                            <div class="card-actions">
+                                <a href="{{ url('/users/create')}}" class="btn-setting" @if(Auth::user()->level == 3) style="display: none" @endif><i class="fa fa-pencil"></i> Add New User</a>               
+                                {{-- <button class="btn-minimize" type="button" data-toggle="collapse" data-target="" aria-expanded="false" aria-controls="collapseExample">
+                                    <i class="fa fa-angle-down"></i>
+                                </button> --}}
+                            </div>
                         </div>
-                        <div class="card-body">
-                            <div class="pull-left">
-                            <a href="{{ url('/users/create')}}" class="btn btn-success"><i class="fa fa-pencil"></i> Add New User</a>               
-              </div>
+                  <div class="table-responsive">                    
                   <table class="table">
                     <thead>
                       <tr>
@@ -93,6 +96,7 @@
                       </tbody>
 
                         </table>
+                        </div>
                         {{ $users->links() }}
 
                         </div>
