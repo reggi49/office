@@ -22,7 +22,7 @@
                     <div class="page-title">
                         <ol class="breadcrumb text-right">
                             <li><a href="{{url('/')}}">Dashboard</a></li>
-                            <li><a href="#">Table</a></li>
+                            <li><a href="{{url('/data')}}">Index Table</a></li>
                             <li class="active">Data table</li>
                         </ol>
                     </div>
