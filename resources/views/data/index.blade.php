@@ -47,17 +47,17 @@
                         <div class="card-body">
                             <div class="pull-left">
                       </div>
-                  <table id="bootstrap-data-table" class="table table-bordered table-striped datatable responsive" style="width:100%">
+                  <table id="bootstrap-data-table" class="table table-bordered table-striped datatable responsive" style="width: 100%; font-size: 0.75rem;">
                     <thead>
                       <tr>
                         <th width="10px">No</th>
-                        <th>Kota</th>
                         <th>Klasifikasi</th>
                         <th>Kode</th>
                         <th>Toko</th>
                         <th>Alamat</th>
                         <th>Phone</th>
                         <th>Telp</th>
+                        <th>Kota</th>
                         <th>Provinsi</th>
                         <th>Region</th>
                         <th width="100px">Aksi</th>
