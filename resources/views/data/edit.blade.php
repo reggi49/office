@@ -113,7 +113,7 @@
                           </div>
                             <div class="row form-group">
                             <div class="col col-md-3"><label for="birthday" class=" form-control-label">Tanggal Lahir</label></div>
-                            <div class="col-12 col-md-9"><input type="text" name="birthday" id="datepicker" placeholder="birthday" value="{{$datapro->b_day}}" class="date form-control""></div>
+                            <div class="col-12 col-md-9"><input type="text" name="birthday" id="datepicker" placeholder="birthday" value="{{ \Carbon\Carbon::parse($datapro->b_day)->format('d-m-Y')}}" class="date form-control""></div>
                           </div>
                           <div class="row form-group">
                             <div class="col col-md-3"><label for="alamat_rumah" class=" form-control-label">Alamat Rumah</label></div>
