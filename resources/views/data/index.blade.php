@@ -63,7 +63,21 @@
                         <th width="100px">Aksi</th>
                       </tr>
                     </thead>
-                    
+                    <tfoot>
+                      <tr>
+                        <td class="non_searchable"></td>
+                        <td></td>
+                        <td class="non_searchable"></td>
+                        <td></td>
+                        <td></td>
+                        <td class="non_searchable"></td>
+                        <td class="non_searchable"></td>
+                        <td></td>
+                        <td class="non_searchable"></td>
+                        <td class="non_searchable"></td>
+                        <td class="non_searchable"></td>
+                      </tr>
+                    </tfoot>
                   </table>
                         </div>
                     </div>

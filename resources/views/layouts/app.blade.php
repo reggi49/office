@@ -113,14 +113,28 @@
             {data: 'kecamatan', name: 'kecamatan'},
             {data: 'status', name: 'status',searchable: false},
             {data: 'toko', name: 'toko'},
-            {data: 'alamat', name: 'alamat', searchable: false,orderable: false},
+            {data: 'alamat', name: 'alamat',orderable: false},
             {data: 'hp', name: 'hp', orderable: false,searchable: false},
             {data: 'phone', name: 'phone', orderable: false,searchable: false},
             {data: 'kota', name: 'kota',searchable: false},
             {data: 'provinsi', name: 'provinsi',searchable: false},
             {data: 'region', name: 'region',searchable: false},
             {data: 'action', name: 'action', orderable: false, searchable: false}
-        ]
+        ],
+        initComplete: function () {
+          this.api().columns().every(function () {
+            var column = this;
+
+            //example for removing search field
+            if (column.footer().className !== 'non_searchable') {
+              var input = document.createElement("input");
+              $(input).appendTo($(column.footer()).empty())
+              .keyup(function () {
+                column.search($(this).val(), false, false, true).draw();
+              });
+            }
+          });
+        }
     });
     $('select').on('change', function(e) {
         // alert(this.value);
