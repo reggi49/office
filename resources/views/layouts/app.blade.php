@@ -128,6 +128,7 @@
             //example for removing search field
             if (column.footer().className !== 'non_searchable') {
               var input = document.createElement("input");
+              input.style.width = "60px";
               $(input).appendTo($(column.footer()).empty())
               .keyup(function () {
                 column.search($(this).val(), false, false, true).draw();
