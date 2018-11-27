@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/themify-icons.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/flag-icon.min.css') }}">
+    {{-- <link rel="stylesheet" href="{{ asset('css/flag-icon.min.css') }}"> --}}
     <link rel="stylesheet" href="{{ asset('css/cs-skin-elastic.css') }}">
     {{-- <link rel="stylesheet" href="{{ asset('css/dataTables.bootstrap.min.css') }}"> --}}
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
