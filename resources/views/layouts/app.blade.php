@@ -13,8 +13,8 @@
     <meta name="description" content="Mbtech - Office">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
-    <link rel="apple-touch-icon" href="apple-icon.png">
-    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="apple-touch-icon" type="image/png" href="{{ asset('images/MBtech-Logo.png')}}">
+    <link rel="shortcut icon" type="image/png" href="{{ asset('images/MBtech-Logo.png')}}">
     
     <link rel="stylesheet" href="{{ asset('css/app.css') }}?v=1">
     <link rel="stylesheet" href="{{ asset('css/normalize.css') }}">
@@ -47,6 +47,15 @@
     <script src="{{ asset('js/plugins.js') }}"></script>
     <script src="{{ asset('js/main.js') }}"></script>
 
+    {{-- <script src="{{ asset('js/Chart.bundle.js') }}"></script>
+    <script src="{{ asset('js/dashboard.js') }}"></script>
+    <script src="{{ asset('js/widgets.js') }}"></script> --}}
+    
+    {{-- <script src="{{ asset('/js/lib/vector-map/jquery.vmap.js') }}"></script>
+    <script src="{{ asset('/js/lib/vector-map/jquery.vmap.min.js') }}"></script>
+    <script src="{{ asset('/js/lib/vector-map/jquery.vmap.sampledata.js') }}"></script>
+    <script src="{{ asset('/js/lib/vector-map/country/jquery.vmap.world.js') }}"></script> --}}
+        
     <script src="{{ asset('js/lib/data-table/datatables.min.js') }}"></script>
     {{-- <script src="{{ asset('js/lib/data-table/dataTables.bootstrap.min.js') }}"></script> --}}
     {{-- <script src="{{ asset('js/lib/data-table/dataTables.buttons.min.js') }}"></script> --}}

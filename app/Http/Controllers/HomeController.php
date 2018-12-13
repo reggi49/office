@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\DB;
 use App\DataPro;
 use DataTables;
 
@@ -25,7 +26,25 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $alldata = DB::table('data_pros')->count();
+        $mobil= "mobil";
+        $dataMobil = DB::table('data_pros')
+                ->where('kecamatan', 'LIKE', "%{$mobil}%")
+                ->count();
+        $motor = "motor";
+        $dataMotor = DB::table('data_pros')
+                ->where('kecamatan', 'LIKE', "%{$motor}%")
+                ->count();
+        $interior= "furniture";
+        $dataInterior =  DB::table('data_pros')
+                ->where('kecamatan', 'LIKE', "%{$interior}%")
+                ->count();
+        $lokasi = DB::table('data_pros')
+                ->whereNotNull('latitude')
+                ->whereNotNull('longitude')
+                ->count();
+
+        return view("home",compact('alldata','lokasi','dataMobil','dataMotor','dataInterior'));
     }
 
     public function datambtech(){
