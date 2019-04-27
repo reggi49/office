@@ -58,25 +58,27 @@ class HomeController extends Controller
     {
         $iduser = $request->user()->level;
         if($iduser == 1){
-            $datapro = DataPro::select(['id', 'region', 'provinsi', 'kota', 'kecamatan', 'status', 'toko', 'alamat', 'hp','phone']);
-            return \DataTables::of($datapro)
+            $datapro = DataPro::select(['id', 'region', 'provinsi', 'kota', 'kecamatan', 'status', 'toko', 'alamat', 'hp','phone','latitude','longitude']);
+            return \DataTables::of($datapro) 
             ->addColumn('action', function ($datapro) {
                     return 
                         \Form::open(array('method'=>'DELETE', 'route' => array('data.data.destroy',"$datapro->id"),'onsubmit' => 'return ConfirmDelete()')) .
                         '<a href="detailpdf/'.$datapro->id.'" target="_blank" class=""><i class="fa fa-print"></i></a> | ' .
                         '<a href="data/'.$datapro->id.'/edit" class=""><i class="fa fa-edit"></i></a> | ' .
+                        ($datapro->latitude ==null ? '': '<a href="https://www.google.com/maps/dir/?api=1&destination='.$datapro->latitude.','.$datapro->longitude.'" target="_blank"><i class="fa fa-map"></i></a> | ').
                         \Form::button('<i class="fa fa-trash-o"></i>', array('type' => 'submit','class'=>'')) .
                         \Form::close();
             })
             ->make(true);
         }else{
-            $datapro = DataPro::select(['id', 'region', 'provinsi', 'kota', 'kecamatan', 'status', 'toko', 'alamat', 'hp','phone']);
+            $datapro = DataPro::select(['id', 'region', 'provinsi', 'kota', 'kecamatan', 'status', 'toko', 'alamat', 'hp','phone','latitude','longitude']);
             return \DataTables::of($datapro)
             ->addColumn('action', function ($datapro) {
                  return 
                     \Form::open(array('method'=>'DELETE', 'route' => array('data.data.destroy',"$datapro->id"),'onsubmit' => 'return ConfirmDelete()')) .
                     '<a href="detailpdf/'.$datapro->id.'" target="_blank" class=""><i class="fa fa-print"></i></a> | ' .
                     '<a href="data/'.$datapro->id.'/edit" class=""><i class="fa fa-edit"></i></a>' .
+                    ($datapro->latitude ==null ? '': '<a href="https://www.google.com/maps/dir/?api=1&destination='.$datapro->latitude.','.$datapro->longitude.'" target="_blank"><i class="fa fa-map"></i></a> | ').
                     \Form::close();
                     })
             ->make(true);

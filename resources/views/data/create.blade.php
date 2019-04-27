@@ -45,7 +45,18 @@
                             @csrf
                             <div class="row form-group">
                             <div class="col col-md-3"><label for="region" class=" form-control-label">Region</label></div>
-                            <div class="col-12 col-md-9"><input type="text" id="region" name="region" placeholder="Region" class="form-control"></div>
+                            <div class="col-12 col-md-9">
+                            <select name="region" id="region">
+                              <option selected="selected">[PILIH REGION]</option>
+                              <option value="REGIONAL I, JABODETABEK">REGIONAL I, JABODETABEK</option>
+                              <option value="REGIONAL II, JAWA BALI">REGIONAL II, JAWA BALI</option>
+                              <option value="REGIONAL III, SUMATERA">REGIONAL III, SUMATERA</option>
+                              <option value="REGIONAL IV, KALIMANTAN">REGIONAL IV, KALIMANTAN</option>
+                              <option value="REGIONAL V, SULAWESI">REGIONAL V, SULAWESI</option>
+                              <option value="REGIONAL VI, NTB & NTT">REGIONAL VI, NTB & NTT</option>
+                              <option value="REGIONAL VII, MALUKU & PAPUA">REGIONAL VII, MALUKU & PAPUA</option>
+                            </select>
+                            </div>
                           </div>
                           <div class="row form-group">
                             <div class="col col-md-3"><label for="select" class=" form-control-label">Provinsi</label></div>
