@@ -30,14 +30,17 @@ class HomeController extends Controller
         $mobil= "mobil";
         $dataMobil = DB::table('data_pros')
                 ->where('kecamatan', 'LIKE', "{$mobil}%")
+                ->where('status', '!=', "")
                 ->count();
         $motor = "motor";
         $dataMotor = DB::table('data_pros')
                 ->where('kecamatan', 'LIKE', "{$motor}%")
+                // ->where('status', 'LIKE', "")
                 ->count();
         $interior= "furniture";
         $dataInterior =  DB::table('data_pros')
                 ->where('kecamatan', 'LIKE', "{$interior}%")
+                ->where('status', '!=', "")
                 ->count();
         $lokasi = DB::table('data_pros')
                 ->whereNotNull('latitude')

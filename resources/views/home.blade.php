@@ -31,7 +31,7 @@
                         <h4 class="mb-0">
                             <span class="count">{{$alldata}}</span>
                         </h4>
-                        <p class="text-light">Total Data Toko dan Seat Maker</p>
+                        <p class="text-light">Total Keseluruhan Database</p>
 
                         <h4 class="mb-0">
                             <span class="count">{{$lokasi}}</span>
