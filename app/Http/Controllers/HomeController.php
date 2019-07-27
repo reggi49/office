@@ -37,7 +37,7 @@ class HomeController extends Controller
                 ->count();
         $interior= "furniture";
         $dataInterior =  DB::table('data_pros')
-                ->where('kecamatan', 'LIKE', "{$FURNITURE}%")
+                ->where('kecamatan', 'LIKE', "{$interior}%")
                 ->count();
         $lokasi = DB::table('data_pros')
                 ->whereNotNull('latitude')
