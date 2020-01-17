@@ -6,6 +6,8 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Collection;
 use Yajra\DataTables\Contracts\DataTableScope;
 use Yajra\DataTables\Contracts\DataTableButtons;
+use Maatwebsite\Excel\Writers\LaravelExcelWriter;
+use Maatwebsite\Excel\Classes\LaravelExcelWorksheet;
 use Yajra\DataTables\Transformers\DataArrayTransformer;
 
 abstract class DataTable implements DataTableButtons
@@ -114,34 +116,6 @@ abstract class DataTable implements DataTableButtons
      * @var \Yajra\DataTables\Utilities\Request
      */
     protected $request;
-
-    /**
-     * Export class handler.
-     *
-     * @var string
-     */
-    protected $exportClass = DataTablesExportHandler::class;
-
-    /**
-     * CSV export type writer.
-     *
-     * @var string
-     */
-    protected $csvWriter = 'Csv';
-
-    /**
-     * Excel export type writer.
-     *
-     * @var string
-     */
-    protected $excelWriter = 'Xlsx';
-
-    /**
-     * PDF export type writer.
-     *
-     * @var string
-     */
-    protected $pdfWriter = 'Dompdf';
 
     /**
      * Process dataTables needed render output.
@@ -383,21 +357,24 @@ abstract class DataTable implements DataTableButtons
      */
     public function excel()
     {
-        $ext = '.' . strtolower($this->excelWriter);
-
-        return $this->buildExcelFile()->download($this->getFilename() . $ext, $this->excelWriter);
+        $this->buildExcelFile()->download('xls');
     }
 
     /**
      * Build excel file and prepare for export.
      *
-     * @return \Maatwebsite\Excel\Concerns\Exportable
+     * @return \Maatwebsite\Excel\Writers\LaravelExcelWriter
      */
     protected function buildExcelFile()
     {
-        $dataForExport = collect($this->getDataForExport());
+        /** @var \Maatwebsite\Excel\Excel $excel */
+        $excel = app('excel');
 
-        return new $this->exportClass($dataForExport);
+        return $excel->create($this->getFilename(), function (LaravelExcelWriter $excel) {
+            $excel->sheet('exported-data', function (LaravelExcelWorksheet $sheet) {
+                $sheet->fromArray($this->getDataForExport());
+            });
+        });
     }
 
     /**
@@ -458,13 +435,11 @@ abstract class DataTable implements DataTableButtons
     /**
      * Export results to CSV file.
      *
-     * @return mixed
+     * @return void
      */
     public function csv()
     {
-        $ext = '.' . strtolower($this->csvWriter);
-
-        return $this->buildExcelFile()->download($this->getFilename() . $ext, $this->csvWriter);
+        $this->buildExcelFile()->download('csv');
     }
 
     /**
@@ -476,9 +451,9 @@ abstract class DataTable implements DataTableButtons
     {
         if ('snappy' == config('datatables-buttons.pdf_generator', 'snappy')) {
             return $this->snappyPdf();
+        } else {
+            $this->buildExcelFile()->download('pdf');
         }
-
-        return $this->buildExcelFile()->download($this->getFilename() . '.pdf', $this->pdfWriter);
     }
 
     /**

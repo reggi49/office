@@ -2,6 +2,19 @@
 
 ## Changelog
 
+### v1.5.0 - 2019-06-12
+
+- Bump league/fractal to ^0.18.0. [#21](https://github.com/yajra/laravel-datatables-fractal/pull/21), credits to @abdullah-abunada.
+
+### v1.4.0 - 2019-03-05
+
+- Add support for Laravel 5.8 [#20](https://github.com/yajra/laravel-datatables-fractal/pull/20).
+
+### v1.3.0 - 2018-11-15
+
+- Allow using closures as transformer. [#17](https://github.com/yajra/laravel-datatables-fractal/pull/17) credits to [@c00p3r](https://github.com/c00p3r)
+- Fix [#1863](https://github.com/yajra/laravel-datatables/issues/1863).
+
 ### v1.2.1 - 2018-06-12
 
 - TransformerMakeCommand namespace typo [#14](https://github.com/yajra/laravel-datatables-fractal/pull/14)
