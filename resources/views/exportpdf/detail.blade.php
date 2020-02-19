@@ -70,11 +70,6 @@
 <td style="padding-left: 30px;">:</td>
 <td style="padding-left: 30px;">{{$data->contact}}</td>
 </tr>
-<tr style="padding-left: 30px;">
-<td style="padding-left: 30px;">Tanggal Lahir</td>
-<td style="padding-left: 30px;">:</td>
-<td style="padding-left: 30px;">{{$data->b_day}}</td>
-</tr>
 {{-- <tr style="padding-left: 30px;">
 <td style="padding-left: 30px;">Agama</td>
 <td style="padding-left: 30px;">:</td>
