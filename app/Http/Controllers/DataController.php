@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use App\DataPro;
 use PDF;
+use Image;
 
 use Illuminate\Http\Request;
 
@@ -49,7 +50,9 @@ class DataController extends Controller
         $datapro->region=$request->get('region');
         $datapro->provinsi=substr($request->get('provinsi'),3);
         $datapro->kota=$request->get('kota');
-        $datapro->kecamatan=$request->get('klasifikasi');
+        $datapro->klasifikasi=$request->get('klasifikasi');
+        $datapro->subklasifikasi=$request->get('subklasifikasi');
+        $datapro->kriteria=$request->get('kriteria');
         $datapro->toko=$request->get('toko');
         $datapro->alamat=$request->get('alamat_toko');
         $datapro->alamat_2=$request->get('alamat_toko');
@@ -122,7 +125,9 @@ class DataController extends Controller
         $datapro->region=$request->get('region');
         $datapro->provinsi=substr($request->get('provinsi'),3);
         $datapro->kota=$request->get('kota');
-        $datapro->kecamatan=$request->get('klasifikasi');
+        $datapro->klasifikasi=$request->get('klasifikasi');
+        $datapro->subklasifikasi=$request->get('subklasifikasi');
+        $datapro->kriteria=$request->get('kriteria');
         $datapro->toko=$request->get('toko');
         $datapro->alamat=$request->get('alamat_toko');
         $datapro->alamat_2=$request->get('alamat_toko');
@@ -167,16 +172,33 @@ class DataController extends Controller
 
     private function uploadFoto(Request $request)
     {
-      $foto = $request->file('gambar1') ;
-      $ext = $foto->getClientOriginalExtension();
- 
-      if($request->file('gambar1')->isValid()){
-        $namaFoto = md5(date('YmdHis')).".$ext";
-        $upload_path = 'images';
-        $request->file('gambar1')->move($upload_path, $namaFoto);
-        return $namaFoto;
-      }
-      return false;
+        $this->validate($request, [
+            'gambar1' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
+        // $foto = $request->file('gambar1') ;
+        // $ext = $foto->getClientOriginalExtension();
+         
+        $image = $request->file('gambar1');
+        $input['imagename'] = time().'.'.$image->getClientOriginalExtension();
+        
+        $destinationPath = public_path('images/thumbnail');
+        $img = Image::make($image->getRealPath());
+        $img->resize(250, 150, function ($constraint) {
+            $constraint->aspectRatio();
+        })->save($destinationPath.'/'.$input['imagename']);
+   
+        $destinationPath = public_path('/images');
+        $image->move($destinationPath, $input['imagename']);
+   
+        // $this->postImage->add($input);
+
+        // if($request->file('gambar1')->isValid()){
+        //     $namaFoto = md5(date('YmdHis')).".$ext";
+        //     $upload_path = 'images';
+        //     $request->file('gambar1')->move($upload_path, $namaFoto);
+        //     return $namaFoto;
+        // }
+        return $input['imagename'];
     }
 
     public function getKota($id) 

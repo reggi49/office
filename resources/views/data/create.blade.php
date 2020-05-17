@@ -81,6 +81,14 @@
                             <div class="col-12 col-md-9"><input type="text" id="klasifikasi" name="klasifikasi" placeholder="klasifikasi" class="form-control"></div>
                           </div>
                           <div class="row form-group">
+                            <div class="col col-md-3"><label for="subklasifikasi" class=" form-control-label">Sub Klasifikasi</label></div>
+                            <div class="col-12 col-md-9"><input type="text" id="subklasifikasi" name="subklasifikasi" placeholder="sub klasifikasi" class="form-control"></div>
+                          </div>
+                          <div class="row form-group">
+                            <div class="col col-md-3"><label for="kriteria" class=" form-control-label">Kriteria Usaha</label></div>
+                            <div class="col-12 col-md-9"><input type="text" id="kriteria" name="kriteria" placeholder="kriteria" class="form-control"></div>
+                          </div>
+                          <div class="row form-group">
                             <div class="col col-md-3"><label for="toko" class=" form-control-label">Toko</label></div>
                             <div class="col-12 col-md-9"><input type="text" id="toko" name="toko" placeholder="toko" class="form-control"></div>
                           </div>
@@ -125,6 +133,7 @@
                             <div class="col-12 col-md-9">
                             {{-- <div class="col-12 col-md-9"><input type="text" id="religion" name="religion" placeholder="Agama" class="form-control"></div> --}}
                             <select name="religion" id="religion" onchange="myReligion()" class="form-control">
+                                <option selected="selected">[PILIH AGAMA]</option>
                                 <option value="Islam">Islam</option>
                                 <option value="Protestan">Protestan</option>
                                 <option value="Katolik">Katolik</option>

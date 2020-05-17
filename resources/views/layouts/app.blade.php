@@ -119,7 +119,7 @@
         },
         columns: [
             {data: 'id', name: 'id', orderable: false},
-            {data: 'kecamatan', name: 'kecamatan'},
+            {data: 'klasifikasi', name: 'klasifikasi'},
             {data: 'status', name: 'status',searchable: false},
             {data: 'toko', name: 'toko'},
             {data: 'alamat', name: 'alamat',orderable: false},

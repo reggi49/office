@@ -81,7 +81,15 @@
                           </div>
                           <div class="row form-group">
                             <div class="col col-md-3"><label for="klasifikasi" class=" form-control-label">Klasifikasi</label></div>
-                            <div class="col-12 col-md-9"><input type="text" id="klasifikasi" name="klasifikasi" placeholder="klasifikasi" value="{{$datapro->kecamatan}}" class="form-control"></div>
+                            <div class="col-12 col-md-9"><input type="text" id="klasifikasi" name="klasifikasi" placeholder="klasifikasi" value="{{$datapro->klasifikasi}}" class="form-control"></div>
+                          </div>
+                          <div class="row form-group">
+                            <div class="col col-md-3"><label for="subklasifikasi" class=" form-control-label">Sub Klasifikasi</label></div>
+                            <div class="col-12 col-md-9"><input type="text" id="subklasifikasi" name="subklasifikasi" placeholder="Sub klasifikasi" value="{{$datapro->subklasifikasi}}" class="form-control"></div>
+                          </div>
+                          <div class="row form-group">
+                            <div class="col col-md-3"><label for="kriteria" class=" form-control-label">Kriteria Usaha</label></div>
+                            <div class="col-12 col-md-9"><input type="text" id="kriteria" name="kriteria" placeholder="kriteria usaha" value="{{$datapro->kriteria}}" class="form-control"></div>
                           </div>
                           <div class="row form-group">
                             <div class="col col-md-3"><label for="toko" class=" form-control-label">Toko</label></div>

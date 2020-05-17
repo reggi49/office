@@ -15,9 +15,9 @@
 //     return view('welcome');
 // });
 // Authentication Routes...
-$this->get('/', 'Auth\LoginController@showLoginForm')->name('login');
-$this->post('/login', 'Auth\LoginController@login');
-$this->post('/logout', 'Auth\LoginController@logout')->name('logout');
+Route::get('/', 'Auth\LoginController@showLoginForm')->name('login');
+Route::post('/login', 'Auth\LoginController@login');
+Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
 Route::get('/redirect', 'Auth\LoginController@redirectToProvider')->name('redirect');
 Route::get('/callback', 'Auth\LoginController@handleProviderCallback');
 Auth::routes();
@@ -27,6 +27,10 @@ Route::get('/home/data', 'HomeController@datambtech')->name('data');
 Route::resource('/data', 'DataController',['as' => 'data']);
 Route::resource('/customer', 'CustomerController',['as' => 'customer']);
 Route::post('/customer/loaddaerah', 'CustomerController@loadDaerah')->name('customer.loaddaerah');
+
+Route::get('importexport', 'RestoreController@importExport');
+Route::get('downloadexcel/{type}', 'RestoreController@downloadExcel');
+Route::post('importexcel', 'RestoreController@importExcel');
 
 // Route::resource('/users', 'UsersController',['as' => 'users']);
 Route::get('/getkota/{id}','DataController@getKota');
