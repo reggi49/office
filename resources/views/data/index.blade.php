@@ -51,7 +51,7 @@
                     <thead>
                       <tr>
                         <th width="10px">No</th>
-                        <th>Klasifikasi</th>
+                        <th>Subklasifikasi</th>
                         <th>Kode</th>
                         <th>Toko</th>
                         <th>Alamat</th>

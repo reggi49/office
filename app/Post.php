@@ -11,7 +11,7 @@ use DB;
 class Post extends Model
 {
     use SoftDeletes;
-    protected $fillable =['region','provinsi','kota','klasifikasi','toko','alamat','alamat2','phone','faxs','email','hp','contact','b_day','alamat_rumah','religion','celebration','status','gambar','gambar2','id','id_prov','id_kota','keterangan'];
+    protected $fillable =['region','provinsi','kota','klasifikasi','subklasifikasi','kriteria','toko','alamat','alamat2','phone','faxs','email','hp','contact','b_day','alamat_rumah','religion','celebration','status','gambar','gambar2','id','id_prov','id_kota','keterangan'];
     protected $dates=['created_at'];
     
     public function author()

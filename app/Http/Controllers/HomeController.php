@@ -29,17 +29,17 @@ class HomeController extends Controller
         $alldata = DB::table('data_pros')->count();
         $mobil= "mobil";
         $dataMobil = DB::table('data_pros')
-                ->where('klasifikasi', 'LIKE', "{$mobil}%")
+                ->where('subklasifikasi', 'LIKE', "{$mobil}%")
                 ->where('status', '!=', "")
                 ->count();
         $motor = "motor";
         $dataMotor = DB::table('data_pros')
-                ->where('klasifikasi', 'LIKE', "{$motor}%")
+                ->where('subklasifikasi', 'LIKE', "{$motor}%")
                 // ->where('status', 'LIKE', "")
                 ->count();
         $interior= "furniture";
         $dataInterior =  DB::table('data_pros')
-                ->where('klasifikasi', 'LIKE', "{$interior}%")
+                ->where('subklasifikasi', 'LIKE', "{$interior}%")
                 ->where('status', '!=', "")
                 ->count();
         $lokasi = DB::table('data_pros')
@@ -61,7 +61,7 @@ class HomeController extends Controller
     {
         $iduser = $request->user()->level;
         if($iduser == 1){
-            $datapro = DataPro::select(['id', 'region', 'provinsi', 'kota', 'klasifikasi', 'status', 'toko', 'alamat', 'hp','phone','latitude','longitude']);
+            $datapro = DataPro::select(['id', 'region', 'provinsi', 'kota', 'klasifikasi','subklasifikasi','kriteria', 'status', 'toko', 'alamat', 'hp','phone','latitude','longitude']);
             return \DataTables::of($datapro) 
             ->addColumn('action', function ($datapro) {
                     return 
@@ -74,7 +74,7 @@ class HomeController extends Controller
             })
             ->make(true);
         }else{
-            $datapro = DataPro::select(['id', 'region', 'provinsi', 'kota', 'klasifikasi', 'status', 'toko', 'alamat', 'hp','phone','latitude','longitude']);
+            $datapro = DataPro::select(['id', 'region', 'provinsi', 'kota', 'klasifikasi','subklasifikasi','kriteria','status', 'toko', 'alamat', 'hp','phone','latitude','longitude']);
             return \DataTables::of($datapro)
             ->addColumn('action', function ($datapro) {
                  return 

@@ -94,7 +94,7 @@ class CustomerController extends Controller
     	if($request->get('query'))
         {
             $query = $request->get('query');
-            $data = DB::table('klasifikasi')
+            $data = DB::table('subklasifikasi')
                 ->where('nama', 'LIKE', "%{$query}%")
                 ->get();
             $output = '<ul class="dropdown-menu" style="display:block; position:relative">';
@@ -113,7 +113,7 @@ class CustomerController extends Controller
     {
         $query = $request->get('daerah');
         $seatmaker = DB::table('data_pros')
-                ->where('klasifikasi', 'LIKE', "%{$query}%")
+                ->where('subklasifikasi', 'LIKE', "%{$query}%")
                 ->orWhere('toko', 'LIKE', "%{$query}%")
                 ->orWhere('alamat', 'LIKE', "%{$query}%")
                 ->get();
