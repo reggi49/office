@@ -182,6 +182,7 @@ class DataController extends Controller
         $input['imagename'] = time().'.'.$image->getClientOriginalExtension();
         
         $destinationPath = public_path('images/thumbnail');
+        Image::configure(array('driver' => 'imagick'));
         $img = Image::make($image->getRealPath());
         $img->resize(250, 150, function ($constraint) {
             $constraint->aspectRatio();
