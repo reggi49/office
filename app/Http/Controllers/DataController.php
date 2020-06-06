@@ -181,7 +181,7 @@ class DataController extends Controller
         $image = $request->file('gambar1');
         $input['imagename'] = time().'.'.$image->getClientOriginalExtension();
         
-        $destinationPath = $string = public_path().'public_html/newoffice/images/thumbnail';
+        $destinationPath = str_replace("newoffice/public","public_html",public_path()).'public_html/newoffice/images/thumbnail';
         Image::configure(array('driver' => 'imagick'));
         $img = Image::make($image->getRealPath());
         $img->resize(250, 150, function ($constraint) {
