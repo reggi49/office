@@ -181,14 +181,14 @@ class DataController extends Controller
         $image = $request->file('gambar1');
         $input['imagename'] = time().'.'.$image->getClientOriginalExtension();
         
-        $destinationPath = str_replace("newoffice/public","public_html",public_path()).'public_html/newoffice/images/thumbnail';
+        $destinationPath = str_replace("newoffice/public","public_html",public_path()).'/newoffice/images/thumbnail';
         Image::configure(array('driver' => 'imagick'));
         $img = Image::make($image->getRealPath());
         $img->resize(250, 150, function ($constraint) {
             $constraint->aspectRatio();
         })->save($destinationPath.'/'.$input['imagename']);
    
-        $destinationPath = rtrim(public_path(),"/").'_html/newoffice/images';
+        $destinationPath = str_replace("newoffice/public","public_html",public_path()).'/newoffice/images';
         $image->move($destinationPath, $input['imagename']);
    
         // $this->postImage->add($input);
