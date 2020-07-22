@@ -177,9 +177,9 @@ class DataController extends Controller
         ]);
         // $foto = $request->file('gambar1') ;
         // $ext = $foto->getClientOriginalExtension();
-         
+        $toko = $request->get('toko');
         $image = $request->file('gambar1');
-        $input['imagename'] = time().'.'.$image->getClientOriginalExtension();
+        $input['imagename'] = $toko.time().'.'.$image->getClientOriginalExtension();
         
         $destinationPath = str_replace("newoffice/public","public_html",public_path()).'/newoffice/images/thumbnail';
         Image::configure(array('driver' => 'imagick'));
