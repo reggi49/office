@@ -46,7 +46,7 @@
                             <div class="row form-group">
                             <div class="col col-md-3"><label for="region" class=" form-control-label">Region</label></div>
                             <div class="col-12 col-md-9">
-                            <select name="region" id="region">
+                            <select name="region" id="region" class="form-control">
                               <option selected="selected">[PILIH REGION]</option>
                               <option value="REGIONAL I, JABODETABEK">REGIONAL I, JABODETABEK</option>
                               <option value="REGIONAL II, JAWA BALI">REGIONAL II, JAWA BALI</option>
@@ -78,15 +78,33 @@
                           </div>
                           <div class="row form-group">
                             <div class="col col-md-3"><label for="klasifikasi" class=" form-control-label">Klasifikasi</label></div>
-                            <div class="col-12 col-md-9"><input type="text" id="klasifikasi" name="klasifikasi" placeholder="klasifikasi" class="form-control"></div>
+                            <div class="col-12 col-md-9">
+                              {{-- <input type="text" id="klasifikasi" name="klasifikasi" placeholder="klasifikasi" class="form-control"> --}}
+                              <select name="klasifikasi" id="klasifikasi" class="form-control" onchange="fltrKlasifikasi()">
+                                <option selected="selected">[PILIH KLASIFIKASI]</option>
+                                <option value="TRANSPORTATION">TRANSPORTATION</option>
+                                <option value="PROPERTY">PROPERTY</option>
+                                <option value="TOKO">TOKO</option>
+                              </select>
+                            </div>
                           </div>
                           <div class="row form-group">
                             <div class="col col-md-3"><label for="subklasifikasi" class=" form-control-label">Sub Klasifikasi</label></div>
-                            <div class="col-12 col-md-9"><input type="text" id="subklasifikasi" name="subklasifikasi" placeholder="sub klasifikasi" class="form-control"></div>
+                            <div class="col-12 col-md-9">
+                              {{-- <input type="text" id="subklasifikasi" name="subklasifikasi" placeholder="sub klasifikasi" class="form-control"> --}}
+                              <select name="subklasifikasi" id="subklasifikasi" class="form-control" onchange="fltrsubKlasifikasi()">
+                              
+                              </select>
+                            </div>
                           </div>
                           <div class="row form-group">
                             <div class="col col-md-3"><label for="kriteria" class=" form-control-label">Kriteria Usaha</label></div>
-                            <div class="col-12 col-md-9"><input type="text" id="kriteria" name="kriteria" placeholder="kriteria" class="form-control"></div>
+                            <div class="col-12 col-md-9">
+                              {{-- <input type="text" id="kriteria" name="kriteria" placeholder="kriteria" class="form-control"> --}}
+                              <select name="kriteria" id="kriteria" class="form-control">
+                                
+                              </select>
+                            </div>
                           </div>
                           <div class="row form-group">
                             <div class="col col-md-3"><label for="toko" class=" form-control-label">Toko</label></div>
@@ -114,7 +132,7 @@
                           </div>
                             <div class="row form-group">
                             <div class="col col-md-3"><label for="phone" class=" form-control-label">No. Handphone</label></div>
-                            <div class="col-12 col-md-9"><input type="text" id="phone" name="phone" placeholder="Phone" class="form-control"></div>
+                            <div class="col-12 col-md-9"><input type="text" id="phone" name="phone" placeholder="Cth : 081232312121 " class="form-control"></div>
                           </div>
                             <div class="row form-group">
                             <div class="col col-md-3"><label for="birthday" class=" form-control-label">Tanggal Lahir</label></div>
@@ -284,7 +302,51 @@ function myReligion(){
   } else {
     document.getElementById("celebration").value = "-";
   }
-
 } 
+function fltrKlasifikasi(){
+  if(document.getElementById('klasifikasi').value == "TRANSPORTATION") {
+    $("#subklasifikasi").html(" <option value='MOTOR'>MOTOR</option><option value='MOBIL'>MOBIL</option><option value='OTHER TRANSPORT'>OTHER TRANSPORT</option>");
+  }else if (document.getElementById('klasifikasi').value == "PROPERTY") {
+    $("#subklasifikasi").html("<option value='FURNITURE'>[PILIH FURNITURE]</option><option value='FURNITURE'>FURNITURE</option>");
+  }else if (document.getElementById('klasifikasi').value == "TOKO") {
+    $("#subklasifikasi").html("<option value='TOKO'>[PILIH TOKO]</option><option value='TOKO'>TOKO</option>");
+  } else {
+    document.getElementById("celebration").value = "-";
+  }
+} 
+function fltrsubKlasifikasi(){
+  if(document.getElementById('subklasifikasi').value == "MOTOR") {
+    $("#kriteria").html(" <option value='SEAT MAKER'>SEAT MAKER</option><option value='AGENT JOK'>AGEN JOK</option><option value='DEALER MOTOR'>DEALER MOTOR</option><option value='VARIASI MOTOR'>VARIASI MOTOR</option>");
+  }else if (document.getElementById('subklasifikasi').value == "MOBIL") {
+    $("#kriteria").html(" <option value='SEAT MAKER'>SEAT MAKER</option><option value='DEALER MOBIL'>DEALER MOBIL</option><option value='VARIASI'>VARIASI</option>");
+  }else if (document.getElementById('subklasifikasi').value == "OTHER TRANSPORT") {
+    $("#kriteria").html(" <option value='KAROSERI'>KAROSERI</option><option value='PO BUS'>PO BUS</option><option value='SEAT MANUFACTURE'>SEAT MANUFACTURE</option>");
+  }else if (document.getElementById('subklasifikasi').value == "FURNITURE") {
+    $("#kriteria").html(" <option value='DESIGN INTERIOR'>DESIGN INTERIOR</option><option value='SOFA MAKER'>SOFA MAKER</option><option value='CONTRACTOR'>CONTRACTOR</option><option value='CONTRACTOR INTERIOR'>CONTRACTOR INTERIOR</option><option value='DESIGN INTERIOR'>DESIGN INTERIOR</option><option value='CONSULTAN INTERIOR'>CONSULTAN INTERIOR</option><option value='FURNITURES INTERIOR'>FURNITURE MANUFACTURE</option><option value='SHOWROOM'>SHOWROOM</option><option value='UMKM'>UMKM</option><option value='ARSITEK'>ARSITEK</option>");
+  }else if (document.getElementById('subklasifikasi').value == "TOKO") {
+    $("#kriteria").html(" <option value='TOKO BAHAN'>TOKO BAHAN</option>");
+  } else {
+    document.getElementById("celebration").value = "-";
+  }
+} 
+// filter input 
+function setInputFilter(textbox, inputFilter) {
+  ["input", "keydown", "keyup", "mousedown", "mouseup", "select", "contextmenu", "drop"].forEach(function(event) {
+    textbox.addEventListener(event, function() {
+      if (inputFilter(this.value)) {
+        this.oldValue = this.value;
+        this.oldSelectionStart = this.selectionStart;
+        this.oldSelectionEnd = this.selectionEnd;
+      } else if (this.hasOwnProperty("oldValue")) {
+        this.value = this.oldValue;
+        this.setSelectionRange(this.oldSelectionStart, this.oldSelectionEnd);
+      } else {
+        this.value = "";
+      }
+    });
+  });
+}
+setInputFilter(document.getElementById("phone"), function(value) {
+  return /^-?\d*$/.test(value); });
 </script>
 @endsection
