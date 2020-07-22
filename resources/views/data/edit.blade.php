@@ -52,9 +52,20 @@
                         <form action="{{action('DataController@update', $id)}}" method="post" enctype="multipart/form-data" class="form-horizontal">
                             @csrf
                             <input name="_method" type="hidden" value="PATCH">
-                            <div class="row form-group">
+                          <div class="row form-group">
                             <div class="col col-md-3"><label for="region" class=" form-control-label">Region</label></div>
-                            <div class="col-12 col-md-9"><input type="text" id="region" name="region" placeholder="Region" value="{{$datapro->region}}" class="form-control"></div>
+                            <div class="col-12 col-md-9">
+                              {{-- <input type="text" id="region" name="region" placeholder="Region" value="{{$datapro->region}}" class="form-control"> --}}
+                              <select name="region" id="region">
+                                <option value="REGIONAL I, JABODETABEK" @if($datapro->region === 'REGIONAL I, JABODETABEK') selected @endif>REGIONAL I, JABODETABEK</option>
+                                <option value="REGIONAL II, JAWA BALI" @if($datapro->region === 'REGIONAL II, JAWA BALI') selected @endif>REGIONAL II, JAWA BALI</option>
+                                <option value="REGIONAL III, SUMATERA" @if($datapro->region === 'REGIONAL III, SUMATERA') selected @endif>REGIONAL III, SUMATERA</option>
+                                <option value="REGIONAL IV, KALIMANTAN" @if($datapro->region === 'REGIONAL IV, KALIMANTAN') selected @endif>REGIONAL IV, KALIMANTAN</option>
+                                <option value="REGIONAL V, SULAWESI" @if($datapro->region === 'REGIONAL V, SULAWESI') selected @endif>REGIONAL V, SULAWESI</option>
+                                <option value="REGIONAL VI, NTB & NTT" @if($datapro->region === 'REGIONAL VI, NTB & NTT') selected @endif>REGIONAL VI, NTB & NTT</option>
+                                <option value="REGIONAL VII, MALUKU & PAPUA" @if($datapro->region === 'REGIONAL VII, MALUKU & PAPUA') selected @endif>REGIONAL VII, MALUKU & PAPUA</option>
+                              </select>
+                            </div>
                           </div>
                           <div class="row form-group">
                             <div class="col col-md-3"><label for="select" class=" form-control-label">Provinsi</label></div>
