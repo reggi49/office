@@ -80,7 +80,7 @@ class HomeController extends Controller
                  return 
                     \Form::open(array('method'=>'DELETE', 'route' => array('data.data.destroy',"$datapro->id"),'onsubmit' => 'return ConfirmDelete()')) .
                     '<a href="detailpdf/'.$datapro->id.'" target="_blank" class=""><i class="fa fa-print"></i></a> | ' .
-                    '<a href="data/'.$datapro->id.'/edit" class=""><i class="fa fa-edit"></i></a>' .
+                    '<a href="data/'.$datapro->id.'/edit" class=""><i class="fa fa-edit"></i></a> | ' .
                     ($datapro->latitude ==null ? '': '<a href="https://www.google.com/maps/dir/?api=1&destination='.$datapro->latitude.','.$datapro->longitude.'" target="_blank"><i class="fa fa-map"></i></a> | ').
                     \Form::close();
                     })
