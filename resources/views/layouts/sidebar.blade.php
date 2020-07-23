@@ -20,7 +20,9 @@
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="fa fa-puzzle-piece"></i><a href="{{url('/data')}}">Data MBTech</a></li>
                             <li><i class="fa fa-id-badge"></i><a href="{{url('/cetak')}}">Cetak Data</a></li>
-                            <li><i class="fa fa-file-excel-o"></i><a href="{{url('/importexport')}}">Export/Import</a></li>
+                            @if(Auth::user()->level === 1)
+                                <li><i class="fa fa-file-excel-o"></i><a href="{{url('/importexport')}}">Export/Import</a></li>
+                            @endif
                         </ul>
                     </li>
                     <li class="menu-item-has-children dropdown">
