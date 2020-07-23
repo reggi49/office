@@ -68,7 +68,8 @@ class DataController extends Controller
         // $datapro->id=1;
         $datapro->religion=$request->get('religion');
         $datapro->celebration=$request->get('celebration');
-        $datapro->keterangan=$request->get('keterangan');
+        $datapro->keterangan= 'edited by '.$request->user()->name;
+        // $datapro->keterangan=$request->get('keterangan');
         $datapro->latitude=$request->get('latitude');
         $datapro->longitude=$request->get('longitude');
         $datapro->status=$request->get('status');
@@ -142,7 +143,8 @@ class DataController extends Controller
         $datapro->alamat_rumah=$request->get('alamat_rumah');
         $datapro->religion=$request->get('religion');
         $datapro->celebration=$request->get('celebration');
-        $datapro->keterangan=$request->get('keterangan');
+        // $datapro->keterangan=$request->get('keterangan');
+        $datapro->keterangan= 'edited by '.$request->user()->name;
         $datapro->latitude=$request->get('latitude');
         $datapro->longitude=$request->get('longitude');
         $datapro->status=$request->get('status');
