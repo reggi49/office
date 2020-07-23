@@ -53,6 +53,7 @@
                       <tr>
                         <th>No</th>
                         <th>Nama</th>
+                        <th>Level</th>
                         <th>Email</th>
                         <th>Aksi</th>
                       </tr>
@@ -64,6 +65,13 @@
                 <tr>
                     <td>{{ $i++ }}</td>
                     <td>{{ $user->name }}</td>
+                    @if ( $user->level === 1)
+                        <td>Super Admin</td>
+                    @elseif ( $user->level === 2)
+                        <td>Admin</td>
+                    @else 
+                        <td>Pengguna</td>
+                    @endif
                     <td>{{ $user->email }}</td>
                     <td>
                     <form id="frm_{{$user->id}}"
