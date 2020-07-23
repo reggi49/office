@@ -144,7 +144,7 @@
                           </div>
                           <div class="row form-group">
                             <div class="col col-md-3"><label for="keterangan" class=" form-control-label">Keterangan</label></div>
-                            <div class="col-12 col-md-9"><input type="text" id="keterangan" name="keterangan" placeholder="Keterangan" class="form-control"></div>
+                            <div class="col-12 col-md-9"><input type="text" id="keterangan" name="keterangan" placeholder="Keterangan" class="form-control" disabled></div>
                           </div>
                           <div class="row form-group">
                             <div class="col col-md-3"><label for="contact" class=" form-control-label">Agama</label></div>
