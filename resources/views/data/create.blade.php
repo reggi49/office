@@ -305,7 +305,7 @@ function myReligion(){
 } 
 function fltrKlasifikasi(){
   if(document.getElementById('klasifikasi').value == "TRANSPORTATION") {
-    $("#subklasifikasi").html(" <option value='MOTOR'>MOTOR</option><option value='MOBIL'>MOBIL</option><option value='OTHER TRANSPORT'>OTHER TRANSPORT</option>");
+    $("#subklasifikasi").html("<option value='MOTOR'>PILIH SUBKLASIFIKASI</option><option value='MOTOR'>MOTOR</option><option value='MOBIL'>MOBIL</option><option value='OTHER TRANSPORT'>OTHER TRANSPORT</option>");
   }else if (document.getElementById('klasifikasi').value == "PROPERTY") {
     $("#subklasifikasi").html("<option value='FURNITURE'>[PILIH FURNITURE]</option><option value='FURNITURE'>FURNITURE</option>");
   }else if (document.getElementById('klasifikasi').value == "TOKO") {
