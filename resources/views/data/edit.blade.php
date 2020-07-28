@@ -219,7 +219,7 @@
                                     src="{{asset((isset($datapro) && $datapro->gambar!='')?'/images/'.$datapro->gambar:'images/noimage.jpg')}}"
                                     style="
                                     width: 250px;
-                                    height: 250px;"/>
+                                    height: 150px;"/>
                               <input class="form-control" style="display:none" name="gambar1" type="file" id="image">
                               <br/>
                               <a href="javascript:changeBanner();">Change</a> |
