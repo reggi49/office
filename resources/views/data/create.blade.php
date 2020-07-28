@@ -163,7 +163,7 @@
                           </div>
                           <div class="row form-group">
                             <div class="col col-md-3"><label for="contact" class=" form-control-label">Hari Raya</label></div>
-                            <div class="col-12 col-md-9"><input type="text" id="celebration" name="celebration" placeholder="Hari Raya" class="form-control" value="Idul Fitri"></div>
+                            <div class="col-12 col-md-9"><input type="text" id="celebration" name="celebration" placeholder="Hari Raya" class="form-control" value="Pilih Agama"></div>
                           </div>
                           <div class="row form-group">
                             <div class="col col-md-3"><label class=" form-control-label">Status</label></div>
@@ -192,17 +192,30 @@
                             <div class="col col-md-3"><label for="contact" class=" form-control-label">Longitude</label></div>
                             <div class="col-12 col-md-9"><input type="text" id="longitude" name="longitude" placeholder="Longitude" class="form-control"></div>
                           </div>
+                              <div class="row form-group">
+                                <div class="col col-md-3"><label for="image" class=" form-control-label">Banner Toko</label></div>
+                                  <div class="col-12 col-md-9">
+                                    <img id="preview"
+                                        src="{{url('images/noimage.jpg')}}"
+                                        height="150px" width="250px"/>
+                                        <input class="form-control" style="display:none" name="gambar1" type="file" id="image">
+                                    <br/>
+                                    <a href="javascript:changeBanner();">Change</a> |
+                                    <a style="color: red" href="javascript:removeImage()">Remove</a>
+                                    <input type="hidden" style="display: none" value="0" name="remove" id="remove">
+                                </div>
+                              </div>
                           <div class="row form-group">
-                            <div class="col col-md-3"><label for="image" class=" form-control-label">Gambar 1</label></div>
+                            <div class="col col-md-3"><label for="imageProfile" class=" form-control-label">Profil Toko</label></div>
                               <div class="col-12 col-md-9">
-                                <img id="preview"
-                                    src="{{url('images/noimage.jpg')}}"
-                                    height="200px" width="200px"/>
-                                    <input class="form-control" style="display:none" name="gambar1" type="file" id="image">
+                                <img id="previewProfile"
+                                    src="{{url('images/72images.jpg')}}"
+                                    height="150px" width="150px"/>
+                                    <input class="form-control" style="display:none" name="gambar2" type="file" id="imageProfile">
                                 <br/>
                                 <a href="javascript:changeProfile();">Change</a> |
-                                <a style="color: red" href="javascript:removeImage()">Remove</a>
-                                <input type="hidden" style="display: none" value="0" name="remove" id="remove">
+                                <a style="color: red" href="javascript:removeProfile()">Remove</a>
+                                <input type="hidden" style="display: none" value="0" name="removeprofile" id="removeProfile">
                             </div>
                           </div>
                            {{-- <div class="row form-group">

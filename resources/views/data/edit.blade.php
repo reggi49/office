@@ -92,15 +92,33 @@
                           </div>
                           <div class="row form-group">
                             <div class="col col-md-3"><label for="klasifikasi" class=" form-control-label">Klasifikasi</label></div>
-                            <div class="col-12 col-md-9"><input type="text" id="klasifikasi" name="klasifikasi" placeholder="klasifikasi" value="{{$datapro->klasifikasi}}" class="form-control"></div>
+                            <div class="col-12 col-md-9">
+                              {{-- <input type="text" id="klasifikasi" name="klasifikasi" placeholder="klasifikasi" value="{{$datapro->klasifikasi}}" class="form-control"> --}}
+                              <select name="klasifikasi" id="klasifikasi" class="form-control" onchange="fltrKlasifikasi()">
+                                {{-- <option  selected="selected">[PILIH KLASIFIKASI]</option> --}}
+                                <option value="TRANSPORTATION" @if($datapro->klasifikasi === 'TRANSPORTATION') selected @endif>TRANSPORTATION</option>
+                                <option value="PROPERTY" @if($datapro->klasifikasi === 'PROPERTY') selected @endif>PROPERTY</option>
+                                <option value="TOKO" @if($datapro->klasifikasi === 'TOKO') selected @endif>TOKO</option>
+                              </select>
+                            </div>
                           </div>
                           <div class="row form-group">
                             <div class="col col-md-3"><label for="subklasifikasi" class=" form-control-label">Sub Klasifikasi</label></div>
-                            <div class="col-12 col-md-9"><input type="text" id="subklasifikasi" name="subklasifikasi" placeholder="Sub klasifikasi" value="{{$datapro->subklasifikasi}}" class="form-control"></div>
+                            <div class="col-12 col-md-9">
+                              {{-- <input type="text" id="subklasifikasi" name="subklasifikasi" placeholder="Sub klasifikasi" value="{{$datapro->subklasifikasi}}" class="form-control"> --}}
+                              <select name="subklasifikasi" id="subklasifikasi" class="form-control" onchange="fltrsubKlasifikasi()">
+                                <option value="{{$datapro->subklasifikasi}}">{{$datapro->subklasifikasi}}</option>
+                              </select>
+                            </div>
                           </div>
                           <div class="row form-group">
                             <div class="col col-md-3"><label for="kriteria" class=" form-control-label">Kriteria Usaha</label></div>
-                            <div class="col-12 col-md-9"><input type="text" id="kriteria" name="kriteria" placeholder="kriteria usaha" value="{{$datapro->kriteria}}" class="form-control"></div>
+                            <div class="col-12 col-md-9">
+                              {{-- <input type="text" id="kriteria" name="kriteria" placeholder="kriteria usaha" value="{{$datapro->kriteria}}" class="form-control"> --}}
+                              <select name="kriteria" id="kriteria" class="form-control">
+                                <option value="{{$datapro->kriteria}}">{{$datapro->kriteria}}</option>
+                              </select>
+                            </div>
                           </div>
                           <div class="row form-group">
                             <div class="col col-md-3"><label for="toko" class=" form-control-label">Toko</label></div>
@@ -147,13 +165,13 @@
                             <div class="col-12 col-md-9">
                             {{-- <div class="col-12 col-md-9"><input type="text" id="religion" name="religion" placeholder="Agama" class="form-control"></div> --}}
                             <select name="religion" id="religion" onchange="myReligion()" class="form-control">
-                                <option value="{{$datapro->religion}}">{{$datapro->religion}}</option>
-                                <option value="Islam">Islam</option>
-                                <option value="Protestan">Protestan</option>
-                                <option value="Katolik">Katolik</option>
-                                <option value="Hindu">Hindu</option>
-                                <option value="Buddha">Buddha</option>
-                                <option value="Khonghucu">Khonghucu</option>
+                                {{-- <option value="{{$datapro->religion}}">{{$datapro->religion}}</option> --}}
+                                <option value="Islam" @if($datapro->religion === 'Islam') selected @endif>Islam</option>
+                                <option value="Protestan" @if($datapro->religion === 'Protestan') selected @endif>Protestan</option>
+                                <option value="Katolik" @if($datapro->religion === 'Katolik') selected @endif>Katolik</option>
+                                <option value="Hindu" @if($datapro->religion === 'Hindu') selected @endif>Hindu</option>
+                                <option value="Buddha" @if($datapro->religion === 'Buddha') selected @endif>Buddha</option>
+                                <option value="Khonghucu" @if($datapro->religion === 'Khonghucu') selected @endif>Khonghucu</option>
                             </select>
                             </div>
                           </div>
@@ -199,21 +217,29 @@
                             <div class="col-12 col-md-9">
                               <img id="preview"
                                     src="{{asset((isset($datapro) && $datapro->gambar!='')?'/images/'.$datapro->gambar:'images/noimage.jpg')}}"
-                                    style="max-width:330px;
-                                    max-height:195px;
-                                    width: auto;
-                                    height: auto;"/>
+                                    style="
+                                    width: 250px;
+                                    height: 250px;"/>
                               <input class="form-control" style="display:none" name="gambar1" type="file" id="image">
                               <br/>
-                              <a href="javascript:changeProfile();">Change</a> |
+                              <a href="javascript:changeBanner();">Change</a> |
                               <a style="color: red" href="javascript:removeImage()">Remove</a>
                               <input type="hidden" style="display: none" value="0" name="remove" id="remove">
                             </div>
                           </div>
-                           {{-- <div class="row form-group">
-                            <div class="col col-md-3"><label for="file-input" class=" form-control-label">Gambar 2</label></div>
-                            <div class="col-12 col-md-9"><input type="file" id="file-input" name="file-input" class="form-control-file"></div>
-                          </div> --}}
+                          <div class="row form-group">
+                            <div class="col col-md-3"><label for="imageProfile" class=" form-control-label">Profil Toko</label></div>
+                              <div class="col-12 col-md-9">
+                                <img id="previewProfile"
+                                    src="{{asset((isset($datapro) && $datapro->gambar2!='')?'/images/'.$datapro->gambar2:'images/72images.jpg')}}"
+                                    height="150px" width="150px"/>
+                                    <input class="form-control" style="display:none" name="gambar2" type="file" id="imageProfile">
+                                <br/>
+                                <a href="javascript:changeProfile();">Change</a> |
+                                <a style="color: red" href="javascript:removeProfile()">Remove</a>
+                                <input type="hidden" style="display: none" value="0" name="removeprofile" id="removeProfile">
+                            </div>
+                          </div>
                         <div class="row form-group">
                         <div class="col col-md-3"></div>
                         <div class="col-12 col-md-9">
@@ -308,5 +334,50 @@ function myReligion(){
     document.getElementById("celebration").value = "-";
   }
 } 
-       </script>
+function fltrKlasifikasi(){
+  if(document.getElementById('klasifikasi').value == "TRANSPORTATION") {
+    $("#subklasifikasi").html("<option value='MOTOR'>PILIH SUBKLASIFIKASI</option><option value='MOTOR'>MOTOR</option><option value='MOBIL'>MOBIL</option><option value='OTHER TRANSPORT'>OTHER TRANSPORT</option>");
+  }else if (document.getElementById('klasifikasi').value == "PROPERTY") {
+    $("#subklasifikasi").html("<option value='FURNITURE'>[PILIH FURNITURE]</option><option value='FURNITURE'>FURNITURE</option>");
+  }else if (document.getElementById('klasifikasi').value == "TOKO") {
+    $("#subklasifikasi").html("<option value='TOKO'>[PILIH TOKO]</option><option value='TOKO'>TOKO</option>");
+  } else {
+    document.getElementById("celebration").value = "-";
+  }
+} 
+function fltrsubKlasifikasi(){
+  if(document.getElementById('subklasifikasi').value == "MOTOR") {
+    $("#kriteria").html(" <option value='SEAT MAKER'>SEAT MAKER</option><option value='AGENT JOK'>AGEN JOK</option><option value='DEALER MOTOR'>DEALER MOTOR</option><option value='VARIASI MOTOR'>VARIASI MOTOR</option>");
+  }else if (document.getElementById('subklasifikasi').value == "MOBIL") {
+    $("#kriteria").html(" <option value='SEAT MAKER'>SEAT MAKER</option><option value='DEALER MOBIL'>DEALER MOBIL</option><option value='VARIASI'>VARIASI</option>");
+  }else if (document.getElementById('subklasifikasi').value == "OTHER TRANSPORT") {
+    $("#kriteria").html(" <option value='KAROSERI'>KAROSERI</option><option value='PO BUS'>PO BUS</option><option value='SEAT MANUFACTURE'>SEAT MANUFACTURE</option>");
+  }else if (document.getElementById('subklasifikasi').value == "FURNITURE") {
+    $("#kriteria").html(" <option value='DESIGN INTERIOR'>DESIGN INTERIOR</option><option value='SOFA MAKER'>SOFA MAKER</option><option value='CONTRACTOR'>CONTRACTOR</option><option value='CONTRACTOR INTERIOR'>CONTRACTOR INTERIOR</option><option value='DESIGN INTERIOR'>DESIGN INTERIOR</option><option value='CONSULTAN INTERIOR'>CONSULTAN INTERIOR</option><option value='FURNITURES INTERIOR'>FURNITURE MANUFACTURE</option><option value='SHOWROOM'>SHOWROOM</option><option value='UMKM'>UMKM</option><option value='ARSITEK'>ARSITEK</option>");
+  }else if (document.getElementById('subklasifikasi').value == "TOKO") {
+    $("#kriteria").html(" <option value='TOKO BAHAN'>TOKO BAHAN</option>");
+  } else {
+    document.getElementById("celebration").value = "-";
+  }
+} 
+// filter input 
+function setInputFilter(textbox, inputFilter) {
+  ["input", "keydown", "keyup", "mousedown", "mouseup", "select", "contextmenu", "drop"].forEach(function(event) {
+    textbox.addEventListener(event, function() {
+      if (inputFilter(this.value)) {
+        this.oldValue = this.value;
+        this.oldSelectionStart = this.selectionStart;
+        this.oldSelectionEnd = this.selectionEnd;
+      } else if (this.hasOwnProperty("oldValue")) {
+        this.value = this.oldValue;
+        this.setSelectionRange(this.oldSelectionStart, this.oldSelectionEnd);
+      } else {
+        this.value = "";
+      }
+    });
+  });
+}
+setInputFilter(document.getElementById("phone"), function(value) {
+  return /^-?\d*$/.test(value); });
+</script>
 @endsection

@@ -76,8 +76,38 @@
          });  
     </script>
 {{-- Image function --}}
- <script>
+    <script>
         function changeProfile() {
+            $('#imageProfile').click();
+        }
+        $('#imageProfile').change(function () {
+            console.log('ubahprofile');
+            var imgPath = $(this)[0].value;
+            var ext = imgPath.substring(imgPath.lastIndexOf('.') + 1).toLowerCase();
+            if (ext == "gif" || ext == "png" || ext == "jpg" || ext == "jpeg")
+                readProfile(this);
+            else
+                alert("Please select image file (jpg, jpeg, png).")
+        });
+        function readProfile(input) {
+            console.log('readurl');
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.readAsDataURL(input.files[0]);
+                reader.onload = function (e) {
+                    $('#previewProfile').attr('src', e.target.result);
+                    $('#removeProfile').val(0);
+                }
+            }
+        }
+        function removeProfile() {
+            $('#previewProfile').attr('src', '{{url('images/72images.jpg')}}');
+            $('#removeProfile').val(1);
+        }
+    </script>
+
+    <script>
+        function changeBanner() {
             $('#image').click();
         }
         $('#image').change(function () {

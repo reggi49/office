@@ -74,13 +74,22 @@ class DataController extends Controller
         $datapro->longitude=$request->get('longitude');
         $datapro->status=$request->get('status');
         // $datapro->deleted_at='2018-00-00';
-        if($request->hasfile('gambar1')){
-            $datapro->gambar=$this->uploadFoto($request);
+        if($request->hasfile('gambar1') && $request->hasfile('gambar2')){
+            $datapro->gambar= $this->uploadFoto($request);
+            $datapro->gambar2= $this->uploadProfil($request);
+            // dd($datapro);
             $datapro->save();
-        }else{
-            $datapro->gambar = "noimage.jpg";
+        }else if ($request->hasfile('gambar1')){
+            $datapro->gambar= $this->uploadFoto($request);
+            $datapro->save();
+        }else if ($request->hasfile('gambar2')){
+            $datapro->gambar2= $this->uploadProfil($request);
             $datapro->save();
         }
+        else{   
+            $datapro->save();
+        }
+        
         // dd($datapro);
         // $datapro->save();
         
@@ -149,10 +158,18 @@ class DataController extends Controller
         $datapro->longitude=$request->get('longitude');
         $datapro->status=$request->get('status');
         // $datapro->deleted_at='2018-00-00';
-        if($request->hasfile('gambar1')){
+        if($request->hasfile('gambar1') && $request->hasfile('gambar2')){
+            $datapro->gambar= $this->uploadFoto($request);
+            $datapro->gambar2= $this->uploadProfil($request);
+            $datapro->save();
+        }else if ($request->hasfile('gambar1')){
             $datapro->gambar= $this->uploadFoto($request);
             $datapro->save();
-        }else{
+        }else if ($request->hasfile('gambar2')){
+            $datapro->gambar2= $this->uploadProfil($request);
+            $datapro->save();
+        }
+        else{
             $datapro->save();
         }
         
@@ -180,8 +197,9 @@ class DataController extends Controller
         // $foto = $request->file('gambar1') ;
         // $ext = $foto->getClientOriginalExtension();
         $toko = $request->get('toko');
+        $cleantoko = str_replace("/", "", $toko);
         $image = $request->file('gambar1');
-        $input['imagename'] = $toko.time().'.'.$image->getClientOriginalExtension();
+        $input['imagename'] = $cleantoko.time().'.'.$image->getClientOriginalExtension();
         
         $destinationPath = str_replace("newoffice/public","public_html",public_path()).'/newoffice/images/thumbnail';
         Image::configure(array('driver' => 'imagick'));
@@ -192,7 +210,6 @@ class DataController extends Controller
    
         $destinationPath = str_replace("newoffice/public","public_html",public_path()).'/newoffice/images';
         $image->move($destinationPath, $input['imagename']);
-   
         // $this->postImage->add($input);
 
         // if($request->file('gambar1')->isValid()){
@@ -201,6 +218,29 @@ class DataController extends Controller
         //     $request->file('gambar1')->move($upload_path, $namaFoto);
         //     return $namaFoto;
         // }
+        return $input['imagename'];
+    }
+
+    private function uploadProfil(Request $request)
+    {
+        $this->validate($request, [
+            'gambar2' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
+        $toko = $request->get('toko');
+        $cleantoko = str_replace("/", "", $toko);
+        $image = $request->file('gambar2');
+        $input['imagename'] = 'profil-'.$cleantoko.time().'.'.$image->getClientOriginalExtension();
+        
+        $destinationPath = str_replace("newoffice/public","public_html",public_path()).'/newoffice/images/thumbnail';
+        Image::configure(array('driver' => 'imagick'));
+        $img = Image::make($image->getRealPath());
+        $img->resize(150, 150, function ($constraint) {
+            $constraint->aspectRatio();
+        })->save($destinationPath.'/'.$input['imagename']);
+   
+        $destinationPath = str_replace("newoffice/public","public_html",public_path()).'/newoffice/images';
+        $image->move($destinationPath, $input['imagename']);
+
         return $input['imagename'];
     }
 
