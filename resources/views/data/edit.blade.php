@@ -56,7 +56,7 @@
                             <div class="col col-md-3"><label for="region" class=" form-control-label">Region</label></div>
                             <div class="col-12 col-md-9">
                               {{-- <input type="text" id="region" name="region" placeholder="Region" value="{{$datapro->region}}" class="form-control"> --}}
-                              <select name="region" id="region">
+                              <select name="region" id="region" class="form-control">
                                 <option value="REGIONAL I, JABODETABEK" @if($datapro->region === 'REGIONAL I, JABODETABEK') selected @endif>REGIONAL I, JABODETABEK</option>
                                 <option value="REGIONAL II, JAWA BALI" @if($datapro->region === 'REGIONAL II, JAWA BALI') selected @endif>REGIONAL II, JAWA BALI</option>
                                 <option value="REGIONAL III, SUMATERA" @if($datapro->region === 'REGIONAL III, SUMATERA') selected @endif>REGIONAL III, SUMATERA</option>
