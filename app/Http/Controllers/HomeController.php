@@ -61,7 +61,7 @@ class HomeController extends Controller
     {
         $iduser = $request->user()->level;
         if($iduser == 1){
-            $datapro = DataPro::select(['id', 'region', 'provinsi', 'kota', 'klasifikasi','subklasifikasi','kriteria', 'status', 'toko', 'alamat', 'hp','phone','latitude','longitude']);
+            $datapro = DataPro::select(['id', 'region', 'provinsi', 'kota', 'klasifikasi','subklasifikasi','kriteria', 'status', 'toko', 'alamat', 'hp','phone','latitude','longitude','deleted_at'])->where('deleted_at', null);
             return \DataTables::of($datapro) 
             ->addColumn('action', function ($datapro) {
                     return 
@@ -74,7 +74,7 @@ class HomeController extends Controller
             })
             ->make(true);
         }else{
-            $datapro = DataPro::select(['id', 'region', 'provinsi', 'kota', 'klasifikasi','subklasifikasi','kriteria','status', 'toko', 'alamat', 'hp','phone','latitude','longitude']);
+            $datapro = DataPro::select(['id', 'region', 'provinsi', 'kota', 'klasifikasi','subklasifikasi','kriteria','status', 'toko', 'alamat', 'hp','phone','latitude','longitude'])->where('deleted_at', null);
             return \DataTables::of($datapro)
             ->addColumn('action', function ($datapro) {
                  return 

@@ -185,7 +185,9 @@ class DataController extends Controller
     public function destroy($id)
     {
         $datapro = DataPro::find($id);
-        $datapro->delete();
+        $datapro->deleted_at = date("Y-m-d H:i:s");
+        $datapro->save();
+        // $datapro->delete();
         return redirect('data')->with('success','Information has been  deleted');
     }
 
