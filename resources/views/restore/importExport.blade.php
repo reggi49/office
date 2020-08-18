@@ -67,7 +67,7 @@
                 @endif
  
                 <input type="file" name="file" />
-                <button class="btn btn-primary">Import File</button>
+                <button class="btn btn-primary">Export File</button>
             </form>
                             </div>
 
