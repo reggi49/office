@@ -73,7 +73,6 @@ class DataController extends Controller
         $datapro->latitude=$request->get('latitude');
         $datapro->longitude=$request->get('longitude');
         $datapro->status=$request->get('status');
-        // $datapro->deleted_at='2018-00-00';
         if($request->hasfile('gambar1') && $request->hasfile('gambar2')){
             $datapro->gambar= $this->uploadFoto($request);
             $datapro->gambar2= $this->uploadProfil($request);
@@ -93,7 +92,7 @@ class DataController extends Controller
         // dd($datapro);
         // $datapro->save();
         
-        return redirect('data')->with('success', 'Information has been added');
+        return redirect('data')->with('message', 'Data Berhasil Ditambahkan, Silahkan Dicek Kembali.');
     }
     
     /**
@@ -157,7 +156,6 @@ class DataController extends Controller
         $datapro->latitude=$request->get('latitude');
         $datapro->longitude=$request->get('longitude');
         $datapro->status=$request->get('status');
-        // $datapro->deleted_at='2018-00-00';
         if($request->hasfile('gambar1') && $request->hasfile('gambar2')){
             $datapro->gambar= $this->uploadFoto($request);
             $datapro->gambar2= $this->uploadProfil($request);

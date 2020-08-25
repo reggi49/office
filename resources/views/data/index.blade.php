@@ -33,6 +33,14 @@
                 <div class="row">
 
                 <div class="col-md-12">
+                    @if(Session::has('message'))
+                    <div class="alert  alert-success alert-dismissible fade show" role="alert">
+                        <span class="badge badge-pill badge-success">Info</span>{{ Session::get('message') }}</p>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    @endif
                     <div class="card">
                         <div class="card-header">
                             <strong class="card-title">Data Table</strong>
