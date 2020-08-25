@@ -92,7 +92,7 @@ class DataController extends Controller
         // dd($datapro);
         // $datapro->save();
         
-        return redirect('data')->with('message', 'Data Berhasil Ditambahkan, Silahkan Dicek Kembali.');
+        return redirect('data')->with('message', 'Data '.$datapro->toko.' Berhasil Ditambahkan, Silahkan Dicek Kembali.');
     }
     
     /**
