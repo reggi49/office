@@ -203,7 +203,7 @@ class DataController extends Controller
         $input['imagename'] = $cleantoko.time().'.'.$image->getClientOriginalExtension();
         
         $destinationPath = str_replace("office/public","html",public_path()).'/office/images/thumbnail';
-        Image::configure(array('driver' => 'imagick'));
+        // Image::configure(array('driver' => 'imagick'));
         $img = Image::make($image->getRealPath());
         $img->resize(250, 150, function ($constraint) {
             $constraint->aspectRatio();
@@ -232,7 +232,7 @@ class DataController extends Controller
         $input['imagename'] = 'profil-'.$cleantoko.time().'.'.$image->getClientOriginalExtension();
         
         $destinationPath = str_replace("office/public","html",public_path()).'/office/images/thumbnail';
-        Image::configure(array('driver' => 'imagick'));
+        // Image::configure(array('driver' => 'imagick'));
         $img = Image::make($image->getRealPath());
         $img->resize(150, 150, function ($constraint) {
             $constraint->aspectRatio();
