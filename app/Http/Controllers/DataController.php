@@ -212,7 +212,6 @@ class DataController extends Controller
         $destinationPath = str_replace("office/public","html",public_path()).'/office/images';
         $image->move($destinationPath, $input['imagename']);
         // $this->postImage->add($input);
-
         // if($request->file('gambar1')->isValid()){
         //     $namaFoto = md5(date('YmdHis')).".$ext";
         //     $upload_path = 'images';
