@@ -238,7 +238,7 @@ class DataController extends Controller
             $constraint->aspectRatio();
         })->save($destinationPath.'/'.$input['imagename']);
    
-        $destinationPath = str_replace("office/public","public_html",public_path()).'/office/images';
+        $destinationPath = str_replace("office/public","html",public_path()).'/office/images';
         $image->move($destinationPath, $input['imagename']);
 
         return $input['imagename'];
