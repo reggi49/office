@@ -202,14 +202,14 @@ class DataController extends Controller
         $image = $request->file('gambar1');
         $input['imagename'] = $cleantoko.time().'.'.$image->getClientOriginalExtension();
         
-        $destinationPath = str_replace("newoffice/public","public_html",public_path()).'/newoffice/images/thumbnail';
+        $destinationPath = str_replace("office/public","html",public_path()).'/office/images/thumbnail';
         Image::configure(array('driver' => 'imagick'));
         $img = Image::make($image->getRealPath());
         $img->resize(250, 150, function ($constraint) {
             $constraint->aspectRatio();
         })->save($destinationPath.'/'.$input['imagename']);
    
-        $destinationPath = str_replace("newoffice/public","public_html",public_path()).'/newoffice/images';
+        $destinationPath = str_replace("office/public","html",public_path()).'/office/images';
         $image->move($destinationPath, $input['imagename']);
         // $this->postImage->add($input);
 
@@ -232,14 +232,14 @@ class DataController extends Controller
         $image = $request->file('gambar2');
         $input['imagename'] = 'profil-'.$cleantoko.time().'.'.$image->getClientOriginalExtension();
         
-        $destinationPath = str_replace("newoffice/public","public_html",public_path()).'/newoffice/images/thumbnail';
+        $destinationPath = str_replace("office/public","html",public_path()).'/office/images/thumbnail';
         Image::configure(array('driver' => 'imagick'));
         $img = Image::make($image->getRealPath());
         $img->resize(150, 150, function ($constraint) {
             $constraint->aspectRatio();
         })->save($destinationPath.'/'.$input['imagename']);
    
-        $destinationPath = str_replace("newoffice/public","public_html",public_path()).'/newoffice/images';
+        $destinationPath = str_replace("office/public","public_html",public_path()).'/office/images';
         $image->move($destinationPath, $input['imagename']);
 
         return $input['imagename'];
