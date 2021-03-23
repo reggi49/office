@@ -7,6 +7,7 @@ use App\Exports\DataExport;
 use Illuminate\Support\Facades\DB;
 // use Maatwebsite\Excel\Facades\Excel;
 use Excel;
+ini_set('memory_limit', '-1');
 
 use Illuminate\Http\Request;
 

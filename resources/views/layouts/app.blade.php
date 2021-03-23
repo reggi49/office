@@ -16,8 +16,8 @@
     <meta name="description" content="Mbtech - Office">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
    
-    <link rel="apple-touch-icon" href="apple-icon.png">
-    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="apple-touch-icon" href="{{ asset('apple-icon.png') }}">
+    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
     
     <link rel="stylesheet" href="{{ asset('css/app.css') }}?v=1">
     <link rel="stylesheet" href="{{ asset('css/normalize.css') }}">
