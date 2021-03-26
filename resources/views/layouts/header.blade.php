@@ -3,7 +3,7 @@
             <div class="header-menu">
 
                 <div class="col-sm-7">
-                  <a id="menuToggle" class="menutoggle pull-left"><i class="fa fa fa-tasks"></i></a>  
+                  <a id="menuToggle" class="menutoggle pull-left"><i class="fa fa fa-tasks" style="margin-top: 10%"></i></a>  
                 </div>
 
                 <div class="col-sm-5">
