@@ -17,7 +17,7 @@ ini_set("max_execution_time","-1");
 
   </head>
   <body> 
-    <h1 style="text-align: center;"><img style="font-size: 14px; float: left;" src="https://www.mbtech.app/office/images/MBtech-Logo.png?1" alt="" width="150" height="100" /></h1>
+    <h1 style="text-align: center;"><img style="font-size: 14px; float: left;" src="https://www.mbtech.app/office/images/MBtech-Logo.png?2" alt="" width="150" height="100" /></h1>
     <h1 style="text-align: center;"><strong>PT POLYSTRAR INTERNATIONAL</strong></h1>
     <p style="text-align: center;">Jalan Boulevard Raya Blok WE2 No. 3D, Kelapa Gading Timur,</p>
     <p style="text-align: center;">Kelapa Gading, Kota Jakarta Utara, Daerah Khusus Ibukota Jakarta 14240</p>
