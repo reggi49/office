@@ -10,7 +10,7 @@
                     <div class="user-area dropdown float-right">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             @if (is_null(Auth::user()->avatar))
-                                <img class="user-avatar rounded-circle" src="{{ url('images/LOGO-MBtech.png') }}" alt="User Avatar">
+                                <img class="user-avatar rounded-circle" src="{{ url('images/MBtech-Logo.png') }}" alt="User Avatar">
                             @else
                                 <img class="user-avatar rounded-circle" src="{{ url(Auth::user()->avatar) }}" alt="User Avatar">
                             @endif
