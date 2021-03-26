@@ -5,8 +5,8 @@
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="{{url('/')}}"><img src="{{ asset('images/MBtech-Logo.png')}}" alt="Logo"></a>
-                <a class="navbar-brand hidden" href="{{url('/')}}"><img src="{{ asset('images/MBtech-Logo.png')}}" alt="Logo"></a>
+                <a class="navbar-brand" href="{{url('/')}}"><img src="{{ asset('images/MBtech-Logo.png?1')}}" alt="Logo"></a>
+                <a class="navbar-brand hidden" href="{{url('/')}}"><img src="{{ asset('images/MBtech-Logo.png?1')}}" alt="Logo"></a>
             </div>
 
             <div id="main-menu" class="main-menu collapse navbar-collapse">
