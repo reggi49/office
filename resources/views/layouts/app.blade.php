@@ -18,6 +18,7 @@
    
     <link rel="apple-touch-icon" href="{{ asset('apple-icon.png') }}">
     <link rel="shortcut icon" href="{{ asset('favicon.png') }}">
+    <link rel="icon" href="{{ asset('favicon.png') }}">
     
     <link rel="stylesheet" href="{{ asset('css/app.css') }}?v=1">
     <link rel="stylesheet" href="{{ asset('css/normalize.css') }}">
