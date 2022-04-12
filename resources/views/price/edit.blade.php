@@ -62,9 +62,9 @@
                             <div class="col-12 col-md-9">
                                 {{-- <input type="text" id="klasifikasi" name="klasifikasi" placeholder="klasifikasi" class="form-control"> --}}
                                 <select name="category" id="category" class="form-control">
-                                <option value="MOBIL" @if($price->category === 'mobil') selected @endif>MOBIL</option>
-                                <option value="MOTOR" @if($price->category === 'motor') selected @endif>MOTOR</option>
-                                <option value="SOFA" @if($price->category === 'sofa') selected @endif>SOFA</option>
+                                <option value="mobil" @if($price->category === 'mobil') selected @endif>MOBIL</option>
+                                <option value="motor" @if($price->category === 'motor') selected @endif>MOTOR</option>
+                                <option value="sofa" @if($price->category === 'sofa') selected @endif>SOFA</option>
                                 </select>
                             </div>
                           </div>  

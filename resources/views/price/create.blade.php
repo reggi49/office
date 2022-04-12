@@ -53,9 +53,9 @@
                                 {{-- <input type="text" id="klasifikasi" name="klasifikasi" placeholder="klasifikasi" class="form-control"> --}}
                                 <select name="category" id="category" class="form-control">
                                 <option selected="selected">[PILIH KATEGORI]</option>
-                                <option value="MOBIL">MOBIL</option>
-                                <option value="MOTOR">MOTOR</option>
-                                <option value="SOFA">SOFA</option>
+                                <option value="mobil">MOBIL</option>
+                                <option value="motor">MOTOR</option>
+                                <option value="sofa">SOFA</option>
                                 </select>
                             </div>
                           </div>  
