@@ -14,6 +14,12 @@
                     <li class="active">
                         <a href="{{url('/')}}"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
                     </li>
+                    @if(Auth::user()->level === 1)
+                    <li>
+                        <a href="{{url('/price')}}"> <i class="menu-icon fa fa-money"></i>Price </a>
+                    </li>
+                    @endif
+                   
                     {{-- <h3 class="menu-title">UI elements</h3><!-- /.menu-title --> --}}
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Modul Data</a>

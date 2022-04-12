@@ -24,6 +24,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/home/data', 'HomeController@datambtech')->name('data');
+Route::resource('/price', 'PriceController',['as' => 'price']);
 Route::resource('/data', 'DataController',['as' => 'data']);
 Route::resource('/customer', 'CustomerController',['as' => 'customer']);
 Route::post('/customer/loaddaerah', 'CustomerController@loadDaerah')->name('customer.loaddaerah');
