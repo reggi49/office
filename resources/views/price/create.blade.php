@@ -65,7 +65,7 @@
                             {{-- <input type="text" id="klasifikasi" name="klasifikasi" placeholder="klasifikasi" class="form-control"> --}}
                             <select name="products" id="products" class="form-control">
                             <option value="‎" selected="selected">[PILIH BAHAN]</option>
-                            <option value="Basic=Camaro - Camaro Fiesta - New Superior - Picasso">BASIC</option>
+                            <option value="Camaro - Camaro Fiesta - New Superior - Picasso">BASIC</option>
                             <option value="Carrera">PRIME COLOR</option>
                             <option value="Giorgio">GIORGIO</option>
                             <option value="Riders Cruiser">Riders</option>

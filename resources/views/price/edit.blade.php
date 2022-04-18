@@ -73,7 +73,7 @@
                           <div class="col-12 col-md-9">
                             {{-- <input type="text" id="klasifikasi" name="klasifikasi" placeholder="klasifikasi" class="form-control"> --}}
                             <select name="products" id="products" class="form-control">
-                            <option value="Basic=Camaro - Camaro Fiesta - New Superior - Picasso" @if($price->products === 'Basic=Camaro - Camaro Fiesta - New Superior - Picasso') selected @endif>BASIC</option>
+                            <option value="Camaro - Camaro Fiesta - New Superior - Picasso" @if($price->products === 'Camaro - Camaro Fiesta - New Superior - Picasso') selected @endif>BASIC</option>
                             <option value="Carrera" @if($price->products === 'Carrera') selected @endif>PRIME COLOR</option>
                             <option value="Giorgio" @if($price->products === 'Giorgio') selected @endif>GIORGIO</option>
                             <option value="Riders Cruiser" @if($price->products === 'Riders Cruiser') selected @endif>Riders</option>
