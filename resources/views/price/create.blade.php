@@ -68,6 +68,7 @@
                             <option value="Basic=Camaro - Camaro Fiesta - New Superior - Picasso">BASIC</option>
                             <option value="Carrera">PRIME COLOR</option>
                             <option value="Giorgio">GIORGIO</option>
+                            <option value="Riders Cruiser">Riders</option>
                             </select>
                           </div>
                           </div>  
