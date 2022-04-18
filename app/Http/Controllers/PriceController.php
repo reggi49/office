@@ -111,19 +111,19 @@ class PriceController extends Controller
     private function uploadFoto(Request $request)
     {
         $this->validate($request, [
-            'gambar1' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'gambar' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
         // $foto = $request->file('gambar1') ;
         // $ext = $foto->getClientOriginalExtension();
-        $toko = $request->get('toko');
-        $cleantoko = str_replace("/", "", $toko);
-        $image = $request->file('gambar1');
-        $input['imagename'] = $cleantoko.time().'.'.$image->getClientOriginalExtension();
+        $toko = $request->get('name');
+        $cleanname = str_replace("/", "", $toko);
+        $image = $request->file('gambar');
+        $input['imagename'] = $cleanname.time().'.'.$image->getClientOriginalExtension();
         
         $destinationPath = str_replace("office/public","html",public_path()).'/office/images/thumbnail';
         // Image::configure(array('driver' => 'imagick'));
         $img = Image::make($image->getRealPath());
-        $img->resize(250, 150, function ($constraint) {
+        $img->resize(250, 250, function ($constraint) {
             $constraint->aspectRatio();
         })->save($destinationPath.'/'.$input['imagename']);
    
