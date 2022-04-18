@@ -96,7 +96,7 @@
                             <div class="col col-md-3"><label for="gambar" class=" form-control-label">Gambar</label></div>
                               <div class="col-12 col-md-9">
                                 <img id="previewProfile"
-                                    src="{{url('images/72images.jpg')}}"
+                                    src="{{asset((isset($price) && $price->gambar!='')?'/images/'.$price->gambar:'images/noimage.jpg')}}"
                                     height="150px" width="150px"/>
                                     <input class="form-control" style="display:none" name="gambar" type="file" id="imageProfile">
                                 <br/>
