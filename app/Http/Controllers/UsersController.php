@@ -63,7 +63,8 @@ class UsersController extends Controller
             $user->name = $request->name;
             $user->level = $request->level;
             $user->status = $request->status;
-            $user->username = $request->name;
+            $username = explode("@", $request->email);
+            $user->username = $username[0];
             $user->email = $request->email;
             $user->no_telp = $request->no_telp;
             $user->level = $request->level;
