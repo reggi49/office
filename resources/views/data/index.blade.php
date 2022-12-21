@@ -60,13 +60,15 @@
                       <tr>
                         <th width="10px">No</th>
                         <th>Subklasifikasi</th>
+
+                        <th>Kriteria Usaha</th>
                         <th>Kode</th>
                         <th>Toko</th>
                         <th>Alamat</th>
                         <th>Phone</th>
                         <th>Telp</th>
                         <th>Kota</th>
-                        <th>Provinsi</th>
+                        <!-- <th>Provinsi</th> -->
                         <th>Region</th>
                         <th width="100px">Aksi</th>
                       </tr>

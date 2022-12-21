@@ -154,13 +154,14 @@
         columns: [
             {data: 'id', name: 'id', orderable: false},
             {data: 'subklasifikasi', name: 'subklasifikasi'},
+            {data: 'kriteria', name: 'kriteria',searchable: false},
             {data: 'status', name: 'status',searchable: false},
             {data: 'toko', name: 'toko'},
             {data: 'alamat', name: 'alamat',orderable: false},
             {data: 'hp', name: 'hp', orderable: false,searchable: false},
             {data: 'phone', name: 'phone', orderable: false,searchable: false},
             {data: 'kota', name: 'kota',searchable: false},
-            {data: 'provinsi', name: 'provinsi',searchable: false},
+           
             {data: 'region', name: 'region',searchable: false},
             {data: 'action', name: 'action', orderable: false, searchable: false}
         ],
