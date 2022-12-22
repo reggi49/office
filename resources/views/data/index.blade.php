@@ -77,10 +77,10 @@
                       <tr>
                         <td class="non_searchable"></td>
                         <td></td>
-                        <td class="non_searchable"></td>
                         <td></td>
                         <td></td>
-                        <td class="non_searchable"></td>
+                        <td></td>
+                        <td></td>
                         <td class="non_searchable"></td>
                         <td></td>
                         <td class="non_searchable"></td>

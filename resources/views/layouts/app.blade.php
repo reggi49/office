@@ -154,10 +154,10 @@
         columns: [
             {data: 'id', name: 'id', orderable: false},
             {data: 'subklasifikasi', name: 'subklasifikasi'},
-            {data: 'kriteria', name: 'kriteria',searchable: false},
+            {data: 'kriteria', name: 'kriteria'},
             {data: 'status', name: 'status',searchable: false},
             {data: 'toko', name: 'toko'},
-            {data: 'alamat', name: 'alamat',orderable: false},
+            {data: 'alamat', name: 'alamat'},
             {data: 'hp', name: 'hp', orderable: false,searchable: false},
             {data: 'phone', name: 'phone', orderable: false,searchable: false},
             {data: 'kota', name: 'kota',searchable: false},
