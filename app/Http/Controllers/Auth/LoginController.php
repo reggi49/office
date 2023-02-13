@@ -3,10 +3,8 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use App\User;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Socialite;
 
 class LoginController extends Controller
@@ -52,12 +50,12 @@ class LoginController extends Controller
             return redirect('/login');
         }
         // only allow people with @company.com to login
-         if(explode("@", $user->email)[1] !== 'mbtech.info'){
+        if (explode('@', $user->email)[1] !== 'mbtech.info') {
             return redirect()->to('/');
         }
         // check if they're an existing user
         $existingUser = User::where('email', $user->email)->first();
-        if($existingUser){
+        if ($existingUser) {
             // log them in
             auth()->login($existingUser, true);
         } else {
@@ -71,6 +69,7 @@ class LoginController extends Controller
             $newUser->save();
             auth()->login($newUser, true);
         }
+        
         return redirect()->to('/home');
     }
 }

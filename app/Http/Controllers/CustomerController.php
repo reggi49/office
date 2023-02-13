@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Support\Facades\DB;
+
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 
 use Mail;
@@ -91,15 +92,13 @@ class CustomerController extends Controller
 
     public function loadDaerah(Request $request)
     {
-    	if($request->get('query'))
-        {
+        if ($request->get('query')) {
             $query = $request->get('query');
             $data = DB::table('subklasifikasi')
                 ->where('nama', 'LIKE', "%{$query}%")
                 ->get();
             $output = '<ul class="dropdown-menu" style="display:block; position:relative">';
-        foreach($data as $row)
-        {
+        foreach ($data as $row) {
             $output .= '
             <li><a href="#">'.$row->nama.'</a></li>
             ';
@@ -119,18 +118,16 @@ class CustomerController extends Controller
                 ->get();
         //dd($seatmaker);
 
-        $data = array(
+        $data = [
             'name' => "Data Seat Maker MBTech Terdekat",
             'email' => $request->get('email'),
             'seatmaker' => $seatmaker,
-        );
+        ];
 
-        Mail::send('emails.welcome', $data, function ($message) use ($data){
-
+        Mail::send('emails.welcome', $data, function ($message) use ($data) {
             $message->from('reggimuhamad49@gmail.com', 'Data Seat Maker MBTech Terdekat');
 
             $message->to($data['email'])->subject('Data Seat Maker MBTech Terdekat');
-
         });
 
         return Redirect::to('customer')->with('message', 'Data Sear Maker Telah Terkirim ke email '.$data['email']); //is this actually OK?

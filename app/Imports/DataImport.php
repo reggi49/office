@@ -16,7 +16,7 @@ class DataImport implements ToModel
     {
         return new DataPro([
             'id' => $row[1],
-            'region' => $row[2], 
+            'region' => $row[2],
             'provinsi' => $row[3],
             'kota' => $row[4],
             'klasifikasi' => $row['5'],
