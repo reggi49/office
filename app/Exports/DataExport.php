@@ -12,7 +12,7 @@ class DataExport implements FromCollection
     */
     public function collection()
     {
-        return DataPro::all();
-        // return DataPro::select('region', 'provinsi','kota','klasifikasi','subklasifikasi','kriteria','toko','alamat','alamat_2','phone','faxs','email', 'hp','contact','b_day','alamat_rumah','religion','celebration','status','latitude','longitude','keterangan', 'deleted_at');
+        // return DataPro::all();
+        return DataPro::select('region', 'provinsi','kota','klasifikasi','subklasifikasi','kriteria','toko','alamat','alamat_2','phone','faxs','email', 'hp','contact','b_day','alamat_rumah','religion','celebration','status','latitude','longitude','keterangan', 'deleted_at')->get();
     }
 }
