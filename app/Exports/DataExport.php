@@ -31,8 +31,8 @@ class DataExport implements FromCollection, WithHeadings, WithMapping
     {
         $birthDate = DateTime::createFromFormat('Y-m-d', $row->b_day);
         $tglLahir = $birthDate ? $birthDate->format('d/m/Y') : 'Invalid Date';
-        $deletedAt = DateTime::createFromFormat('Y-m-d', $row->deleted_at);
-        $tglDelete = $deletedAt ? $deletedAt->format('d/m/Y') : 'Invalid Date';
+        // $deletedAt = $row->deleted_at->format('Y-m-d H:i:s');
+        $tglDelete = $row->deleted_at ? $row->deleted_at->format('d/m/Y') : '';
 
         return [
             $row->region, $row->provinsi, $row->kota, $row->klasifikasi, $row->subklasifikasi, $row->kriteria, $row->toko, $row->alamat, $row->alamat_2, $row->phone, $row->faxs, $row->email, $row->hp, $row->contact, $tglLahir, $row->alamat_rumah, $row->religion, $row->celebration, $row->status, $row->latitude, $row->longitude, $row->keterangan, $tglDelete,
