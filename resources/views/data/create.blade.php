@@ -6,7 +6,7 @@
 
         <!-- Header-->
         @include('layouts/header')
-<!-- /header -->
+        <!-- /header -->
         <!-- Header-->
 
         <div class="breadcrumbs">
@@ -108,15 +108,15 @@
                           </div>
                           <div class="row form-group">
                             <div class="col col-md-3"><label for="toko" class=" form-control-label">Toko</label></div>
-                            <div class="col-12 col-md-9"><input type="text" id="toko" name="toko" placeholder="toko" class="form-control"></div>
+                            <div class="col-12 col-md-9"><input type="text" id="toko" name="toko" placeholder="toko" class="form-control" required></div>
                           </div>
                           <div class="row form-group">
                             <div class="col col-md-3"><label for="alamat" class=" form-control-label">Alamat Toko</label></div>
-                            <div class="col-12 col-md-9"><textarea name="alamat_toko" id="alamat_toko" rows="5" placeholder="Alamat toko" class="form-control"></textarea></div>
+                            <div class="col-12 col-md-9"><textarea name="alamat_toko" id="alamat_toko" rows="5" placeholder="Alamat toko" class="form-control" required></textarea></div>
                           </div>
                             <div class="row form-group">
                             <div class="col col-md-3"><label for="contact" class=" form-control-label">Kontak</label></div>
-                            <div class="col-12 col-md-9"><input type="text" id="contact" name="contact" placeholder="Contact" class="form-control"></div>
+                            <div class="col-12 col-md-9"><input type="text" id="contact" name="contact" placeholder="Contact" class="form-control" required></div>
                           </div>
                           <div class="row form-group">
                             <div class="col col-md-3"><label for="telp" class=" form-control-label">No.Telp / No. Faxs</label></div>
@@ -132,11 +132,11 @@
                           </div>
                             <div class="row form-group">
                             <div class="col col-md-3"><label for="phone" class=" form-control-label">No. Handphone</label></div>
-                            <div class="col-12 col-md-9"><input type="text" id="phone" name="phone" placeholder="Cth : 081232312121 " class="form-control"></div>
+                            <div class="col-12 col-md-9"><input type="text" id="phone" name="phone" placeholder="Cth : 081232312121 " class="form-control" required></div>
                           </div>
                             <div class="row form-group">
                             <div class="col col-md-3"><label for="birthday" class=" form-control-label">Tanggal Lahir</label></div>
-                            <div class="col-12 col-md-9"><input type="text" name="birthday" id="datepicker" placeholder="birthday" class="date form-control""></div>
+                            <div class="col-12 col-md-9"><input type="text" name="birthday" id="datepicker" placeholder="birthday" class="date form-control"></div>
                           </div>
                           <div class="row form-group">
                             <div class="col col-md-3"><label for="alamat" class=" form-control-label">Alamat Rumah</label></div>
@@ -186,11 +186,11 @@
                           </div>
                           <div class="row form-group">
                             <div class="col col-md-3"><label for="contact" class=" form-control-label">Latitude</label></div>
-                            <div class="col-12 col-md-9"><input type="text" id="latitude" name="latitude" placeholder="Latitude" class="form-control"></div>
+                            <div class="col-12 col-md-9"><input type="text" id="latitude" name="latitude" placeholder="Latitude" class="form-control" required></div>
                           </div>
                           <div class="row form-group">
                             <div class="col col-md-3"><label for="contact" class=" form-control-label">Longitude</label></div>
-                            <div class="col-12 col-md-9"><input type="text" id="longitude" name="longitude" placeholder="Longitude" class="form-control"></div>
+                            <div class="col-12 col-md-9"><input type="text" id="longitude" name="longitude" placeholder="Longitude" class="form-control" required></div>
                           </div>
                               <div class="row form-group">
                                 <div class="col col-md-3"><label for="image" class=" form-control-label">Banner Toko</label></div>
