@@ -99,6 +99,7 @@
                                 <option value="TRANSPORTATION" @if($datapro->klasifikasi === 'TRANSPORTATION') selected @endif>TRANSPORTATION</option>
                                 <option value="PROPERTY" @if($datapro->klasifikasi === 'PROPERTY') selected @endif>PROPERTY</option>
                                 <option value="TOKO" @if($datapro->klasifikasi === 'TOKO') selected @endif>TOKO</option>
+                                <option value="FASHION" @if($datapro->klasifikasi === 'FASHION') selected @endif>FASHION</option>
                               </select>
                             </div>
                           </div>
@@ -341,23 +342,27 @@ function fltrKlasifikasi(){
     $("#subklasifikasi").html("<option value='FURNITURE'>[PILIH FURNITURE]</option><option value='FURNITURE'>FURNITURE</option>");
   }else if (document.getElementById('klasifikasi').value == "TOKO") {
     $("#subklasifikasi").html("<option value='TOKO'>[PILIH TOKO]</option><option value='TOKO'>TOKO</option>");
+  }else if (document.getElementById('klasifikasi').value == "FASHION") {
+    $("#subklasifikasi").html("<option value='FASHION'>[PILIH FASHION]</option><option value='FASHION'>FASHION</option>");
   } else {
-    document.getElementById("celebration").value = "-";
+    document.getElementById("klasifikasi").value = "-";
   }
 } 
 function fltrsubKlasifikasi(){
   if(document.getElementById('subklasifikasi').value == "MOTOR") {
-    $("#kriteria").html(" <option value='SEAT MAKER'>SEAT MAKER</option><option value='AGENT JOK'>AGEN JOK</option><option value='DEALER MOTOR'>DEALER MOTOR</option><option value='VARIASI MOTOR'>VARIASI MOTOR</option>");
+    $("#kriteria").html(" <option value='SEAT MAKER'>SEAT MAKER</option><option value='AGENT JOK'>AGEN JOK</option><option value='VARIASI MOTOR'>VARIASI MOTOR</option>");
   }else if (document.getElementById('subklasifikasi').value == "MOBIL") {
-    $("#kriteria").html(" <option value='SEAT MAKER'>SEAT MAKER</option><option value='DEALER MOBIL'>DEALER MOBIL</option><option value='VARIASI'>VARIASI</option>");
+    $("#kriteria").html(" <option value='SEAT MAKER'>SEAT MAKER</option><option value='VARVARIASI MOBILIASI'>VARIASI MOBIL</option>");
   }else if (document.getElementById('subklasifikasi').value == "OTHER TRANSPORT") {
-    $("#kriteria").html(" <option value='KAROSERI'>KAROSERI</option><option value='PO BUS'>PO BUS</option><option value='SEAT MANUFACTURE'>SEAT MANUFACTURE</option>");
+    $("#kriteria").html(" <option value='KAROSERI'>KAROSERI</option><option value='PO BUS'>PO BUS</option><option value='SEAT MANUFACTURE'>SEAT MANUFACTURE</option><option value='KAPAL LAUT'>KAPAL LAUT</option><option value='KERETA API'>KERETA API</option>");
   }else if (document.getElementById('subklasifikasi').value == "FURNITURE") {
-    $("#kriteria").html(" <option value='DESIGN INTERIOR'>DESIGN INTERIOR</option><option value='SOFA MAKER'>SOFA MAKER</option><option value='CONTRACTOR'>CONTRACTOR</option><option value='CONTRACTOR INTERIOR'>CONTRACTOR INTERIOR</option><option value='DESIGN INTERIOR'>DESIGN INTERIOR</option><option value='CONSULTAN INTERIOR'>CONSULTAN INTERIOR</option><option value='FURNITURES INTERIOR'>FURNITURE MANUFACTURE</option><option value='SHOWROOM'>SHOWROOM</option><option value='UMKM'>UMKM</option><option value='ARSITEK'>ARSITEK</option>");
+    $("#kriteria").html(" <option value='DESIGN INTERIOR'>DESIGN INTERIOR</option><option value='SOFA MAKER'>SOFA MAKER</option><option value='CONTRACTOR INTERIOR'>CONTRACTOR INTERIOR</option><option value='FURNITURES INTERIOR'>FURNITURE MANUFACTURE</option>");
   }else if (document.getElementById('subklasifikasi').value == "TOKO") {
     $("#kriteria").html(" <option value='TOKO BAHAN'>TOKO BAHAN</option>");
+  }else if (document.getElementById('subklasifikasi').value == "FASHION") {
+    $("#kriteria").html(" <option value='TAS'>TAS</option><option value='SEPATU'>SEPATU</option><option value='SOUVENIR'>SOUVENIR</option><option value='UMKM'>UMKM</option>");
   } else {
-    document.getElementById("celebration").value = "-";
+    document.getElementById("subklasifikasi").value = "-";
   }
 } 
 // filter input 
