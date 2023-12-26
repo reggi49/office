@@ -352,7 +352,7 @@ function fltrsubKlasifikasi(){
   if(document.getElementById('subklasifikasi').value == "MOTOR") {
     $("#kriteria").html(" <option value='SEAT MAKER'>SEAT MAKER</option><option value='AGENT JOK'>AGEN JOK</option><option value='VARIASI MOTOR'>VARIASI MOTOR</option>");
   }else if (document.getElementById('subklasifikasi').value == "MOBIL") {
-    $("#kriteria").html(" <option value='SEAT MAKER'>SEAT MAKER</option><option value='VARVARIASI MOBILIASI'>VARIASI MOBIL</option>");
+    $("#kriteria").html(" <option value='SEAT MAKER'>SEAT MAKER</option><option value='VARIASI MOBILIASI'>VARIASI MOBIL</option>");
   }else if (document.getElementById('subklasifikasi').value == "OTHER TRANSPORT") {
     $("#kriteria").html(" <option value='KAROSERI'>KAROSERI</option><option value='PO BUS'>PO BUS</option><option value='SEAT MANUFACTURE'>SEAT MANUFACTURE</option><option value='KAPAL LAUT'>KAPAL LAUT</option><option value='KERETA API'>KERETA API</option>");
   }else if (document.getElementById('subklasifikasi').value == "FURNITURE") {
